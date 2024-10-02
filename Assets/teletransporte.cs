@@ -5,6 +5,7 @@ using UnityEngine;
 public class teletransporte : MonoBehaviour
 {
     public Transform warp;
+    public AudioSource sonido;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -12,12 +13,13 @@ public class teletransporte : MonoBehaviour
         {
             GameObject objeto = collision.gameObject;
             objeto.transform.position = warp.position;
+            sonido.Play();
         }
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+        AudioSource sonido = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
