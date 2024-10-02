@@ -19,7 +19,7 @@ public class teletransporte : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AudioSource sonido = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
