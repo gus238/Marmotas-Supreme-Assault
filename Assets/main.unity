@@ -1079,6 +1079,7 @@ GameObject:
   - component: {fileID: 680020558}
   - component: {fileID: 680020559}
   - component: {fileID: 680020561}
+  - component: {fileID: 680020562}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -1153,14 +1154,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680020557}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: -0.000000014901161}
-  m_LocalPosition: {x: 358.097, y: 2.609, z: 387.631}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 358.259, y: 2.526, z: 388.264}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 263669315}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &680020561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1176,7 +1177,33 @@ MonoBehaviour:
   arms: {fileID: 263669315}
   mouseSensitivity: 500
   moveSpeed: 5
-  armsOffset: {x: 0.2, y: -0.5, z: 0.5}
+  armsOffset: {x: 0, y: -2.8, z: 0.2}
+--- !u!143 &680020562
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680020557}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &700345795 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9069115365609054727, guid: 60f79905accf3b24fa0114b941f1aac0, type: 3}
@@ -3369,19 +3396,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b35c1bae462778e47b7a6afa05b6e9a4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.10598754
+      value: -0.056030273
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b35c1bae462778e47b7a6afa05b6e9a4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.781
+      value: -2.698
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b35c1bae462778e47b7a6afa05b6e9a4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.18798828
+      value: -0.67099
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b35c1bae462778e47b7a6afa05b6e9a4, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.000000014901161
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b35c1bae462778e47b7a6afa05b6e9a4, type: 3}
       propertyPath: m_LocalRotation.x
@@ -3401,7 +3428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b35c1bae462778e47b7a6afa05b6e9a4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b35c1bae462778e47b7a6afa05b6e9a4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
