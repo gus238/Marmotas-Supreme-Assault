@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PausaEsc : MonoBehaviour
 {
@@ -49,21 +50,16 @@ public class PausaEsc : MonoBehaviour
 
             GUI.Label(new Rect(Screen.width / 2 - 150, Screen.height / 2 - 50, 300, 100), "Game paused", labelStyle);
 
-
             if (GUI.Button(new Rect(Screen.width / 2 - 75, Screen.height / 2 + 10, 150, 40), "Resume"))
             {
                 ResumeGameplay();
-
             }
 
             if (GUI.Button(new Rect(Screen.width / 2 - 75, Screen.height / 2 + 60, 150, 40), "Main Menu"))
             {
-
-                Debug.Log("Returning to Main Menu...");
-                ResumeGameplay();
+                Time.timeScale = 1;
+                SceneManager.LoadScene("Menu Principal");
             }
         }
-
     }
 }
-
