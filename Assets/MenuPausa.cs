@@ -3,63 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PausaEsc : MonoBehaviour
+public class MenuPausa : MonoBehaviour
 {
-    private bool isPaused = false;
+    public GameObject ObjetoMenuPausa;
+    private bool Pausa = false;
 
-    private void Update()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            TogglePause();
+            Pausa = !Pausa; 
+            ObjetoMenuPausa.SetActive(Pausa);
+
+            if (Pausa)
+            {
+                Time.timeScale = 0; 
+            }
+            else
+            {
+                Time.timeScale = 1; 
+            }
         }
     }
 
-    private void TogglePause()
+   
+    public void Reanudar()
     {
-        isPaused = !isPaused;
-        if (isPaused)
-        {
-            PauseGameplay();
-        }
-        else
-        {
-            ResumeGameplay();
-        }
-    }
-
-    private void PauseGameplay()
-    {
-        Time.timeScale = 0;
-    }
-
-    private void ResumeGameplay()
-    {
+        Pausa = false;
+        ObjetoMenuPausa.SetActive(false);
         Time.timeScale = 1;
     }
-
-    private void OnGUI()
+    public void VolerMenu(string NombreMenu)
     {
-        if (isPaused)
-        {
-            GUIStyle labelStyle = new GUIStyle(GUI.skin.label)
-            {
-                fontSize = 40,
-                alignment = TextAnchor.MiddleCenter
-            };
-
-            GUI.Label(new Rect(Screen.width / 2 - 150, Screen.height / 2 - 50, 300, 100), "Game paused", labelStyle);
-
-            if (GUI.Button(new Rect(Screen.width / 2 - 75, Screen.height / 2 + 10, 150, 40), "Resume"))
-            {
-                ResumeGameplay();
-            }
-
-            if (GUI.Button(new Rect(Screen.width / 2 - 75, Screen.height / 2 + 60, 150, 40), "Main Menu"))
-            {
-                Time.timeScale = 1;
-                SceneManager.LoadScene("Menu Principal");
-            }
-        }
+        SceneManager.LoadScene(NombreMenu);
     }
 }
