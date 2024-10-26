@@ -28,4 +28,25 @@ public class AdministracionInventario : MonoBehaviour
             ActivacionInventario = false;
         }
     }
+
+    public void ActivacionInterfaz(string NombreInterfaz)
+    {
+        MenuInventario.SetActive(false);
+        ActivacionInventario = false;
+        GameObject Interfaz = GameObject.Find(NombreInterfaz);
+        if (Interfaz != null)
+        {
+            Interfaz.SetActive(true);
+        }
+
+    }
+    public void ActivarCultivos()
+    {
+        ActivacionInterfaz("MenuCultivos"); // Asegúrate de usar el nombre correcto
+    }
+
+    public void ActivarTienda()
+    {
+        ActivacionInterfaz("MenuTienda"); // Asegúrate de usar el nombre correcto
+    }
 }
