@@ -7,7 +7,7 @@ public class BarraDeVida : MonoBehaviour
 {
     public Slider barraDeVida;
     public float vidaMaxima = 100f;
-    private float vidaActual;
+    public float vidaActual; 
 
     void Start()
     {
@@ -20,14 +20,14 @@ public class BarraDeVida : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            ReducirVida(10f);
+            ReducirVida(10f); 
         }
     }
 
-    void ReducirVida(float cantidad)
+    public void ReducirVida(float cantidad) 
     {
         vidaActual -= cantidad;
-        vidaActual = Mathf.Clamp(vidaActual, 0, vidaMaxima); 
+        vidaActual = Mathf.Clamp(vidaActual, 0, vidaMaxima);
 
         barraDeVida.value = vidaActual;
     }
