@@ -3251,9 +3251,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velMovimiento: 5
   dragSuelo: 3
-  fuerzaSalto: 10
+  fuerzaSalto: 8
   cooldownSalto: 1
-  aireMultiplier: 0.1
+  aireMultiplier: 0.2
   alturaJugador: 0
   suelo:
     serializedVersion: 2
