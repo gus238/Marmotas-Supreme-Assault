@@ -6,10 +6,7 @@ using UnityEngine.SceneManagement;
 public class MenuPausa : MonoBehaviour
 {
     public GameObject ObjetoMenuPausa;
-    public GameObject CamaraPersonaje;
-    public Camera CamaraPausa;
-
-    private bool Pausa = false;
+    private bool Pausa;
 
     void Update()
     {
@@ -17,10 +14,9 @@ public class MenuPausa : MonoBehaviour
         {
             Pausa = !Pausa;
             ObjetoMenuPausa.SetActive(Pausa);
-            CamaraPersonaje.gameObject.SetActive(!Pausa);
-            CamaraPausa.gameObject.SetActive(Pausa);
-
-            Time.timeScale = Pausa ? 0 : 1;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            Time.timeScale = 0;
         }
     }
 
@@ -28,8 +24,8 @@ public class MenuPausa : MonoBehaviour
     {
         Pausa = false;
         ObjetoMenuPausa.SetActive(false);
-        CamaraPersonaje.gameObject.SetActive(true);
-        CamaraPausa.gameObject.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         Time.timeScale = 1;
     }
 
