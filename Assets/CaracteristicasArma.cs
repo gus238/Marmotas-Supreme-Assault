@@ -41,12 +41,12 @@ public class CaracteristicasArma : MonoBehaviour
         {
             disparando = Input.GetKeyDown(KeyCode.Mouse0); 
         }
-        if (Input.GetKeyDown(KeyCode.R) && balasRestantes < tamañoCargador && !recargando)
+        if (Input.GetKeyDown(KeyCode.R) && balasRestantes < tamañoCargador && !recargando && (Time.timeScale == 1))
         {
             Recargar();
         }
 
-        if (listoParaDisparar && disparando && !recargando && balasRestantes > 0)
+        if (listoParaDisparar && disparando && !recargando && balasRestantes > 0 && (Time.timeScale == 1))
         {
             balasDisparadas = tamañoRafaga;
             Disparar();
@@ -56,15 +56,15 @@ public class CaracteristicasArma : MonoBehaviour
     {
         listoParaDisparar = false;
 
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out rayHit, rango, tagEnemigo))
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out rayHit, rango, tagEnemigo) && (Time.timeScale == 1))
         {
             Debug.Log(rayHit.collider.name);
 
-            if (rayHit.collider.CompareTag("Enemy"))
-            {
-                rayHit.collider.gameObject.SetActive(false);
+            //if (rayHit.collider.CompareTag("Enemy"))
+            //{
+            rayHit.collider.gameObject.SetActive(false);
                 //rayHit.collider.getComponent<ShootingAI>().TakeDamage(damage);
-            }
+            //}
         }
 
         balasRestantes--;
@@ -72,7 +72,7 @@ public class CaracteristicasArma : MonoBehaviour
 
         Invoke(nameof(ResetDisparo), fireRate);
 
-        if (balasDisparadas > 0 && balasRestantes > 0)
+        if (balasDisparadas > 0 && balasRestantes > 0 && (Time.timeScale == 1))
         {
             Invoke(nameof(Disparar), tiempoEntreRafaga);
         }
