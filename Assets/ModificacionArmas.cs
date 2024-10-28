@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class CaracteristicasArma : MonoBehaviour
+public class ModificacionArma : MonoBehaviour
 {
     [Header("Propiedades del Arma")]
     public int daño;
@@ -29,9 +29,8 @@ public class CaracteristicasArma : MonoBehaviour
     public Transform puntoSalida;
     public RaycastHit rayHit;
     public LayerMask tagEnemigo;
-    public AudioSource audioSource;
-    public AudioClip disparoSonido;
-    public AudioClip recargaSonido;
+    public AudioSource disparoSonido;
+    public AudioSource recargaSonido;
     public TextMeshProUGUI text;
 
     private void MiInput()
@@ -42,7 +41,7 @@ public class CaracteristicasArma : MonoBehaviour
         }
         else
         {
-            disparando = Input.GetKeyDown(KeyCode.Mouse0); 
+            disparando = Input.GetKeyDown(KeyCode.Mouse0);
         }
         if (Input.GetKeyDown(KeyCode.R) && balasRestantes < tamañoCargador && !recargando && (Time.timeScale == 1))
         {
@@ -55,21 +54,23 @@ public class CaracteristicasArma : MonoBehaviour
             Disparar();
         }
     }
+
     private void Disparar()
     {
         listoParaDisparar = false;
-
-        audioSource.PlayOneShot(disparoSonido);
 
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out rayHit, rango, tagEnemigo) && (Time.timeScale == 1))
         {
             Debug.Log(rayHit.collider.name);
 
-            //if (rayHit.collider.gameObject.CompareTag("Enemy"))
-            //{
-            rayHit.collider.gameObject.SetActive(false);
-                //rayHit.collider.getComponent<ShootingAI>().TakeDamage(damage);
-            //}
+            // Verificamos si el objeto impactado es una marmota
+            if (rayHit.collider.gameObject.CompareTag("Enemy"))
+            {
+                // Hacemos que la marmota desaparezca (usando SetActive o Destroy)
+                rayHit.collider.gameObject.SetActive(false);
+                // Alternativamente podrías usar:
+                // Destroy(rayHit.collider.gameObject); 
+            }
         }
 
         balasRestantes--;
@@ -79,19 +80,20 @@ public class CaracteristicasArma : MonoBehaviour
 
         if (balasDisparadas > 0 && balasRestantes > 0 && (Time.timeScale == 1))
         {
+            disparoSonido.Play();
             Invoke(nameof(Disparar), tiempoEntreRafaga);
         }
     }
+
     private void ResetDisparo()
     {
         listoParaDisparar = true;
     }
+
     private void Recargar()
     {
         recargando = true;
-
-        audioSource.PlayOneShot(recargaSonido);
-
+        recargaSonido.Play();
         Invoke("RecargaTerminada", tiempoRecarga);
     }
 
@@ -100,13 +102,14 @@ public class CaracteristicasArma : MonoBehaviour
         balasRestantes = tamañoCargador;
         recargando = false;
     }
+
     void Start()
     {
         balasRestantes = tamañoCargador;
         listoParaDisparar = true;
     }
 
-    
+
     void Update()
     {
         MiInput();
