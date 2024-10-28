@@ -60,7 +60,7 @@ public class CaracteristicasArma : MonoBehaviour
         {
             Debug.Log(rayHit.collider.name);
 
-            //if (rayHit.collider.CompareTag("Enemy"))
+            //if (rayHit.collider.gameObject.CompareTag("Enemy"))
             //{
             rayHit.collider.gameObject.SetActive(false);
                 //rayHit.collider.getComponent<ShootingAI>().TakeDamage(damage);
