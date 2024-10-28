@@ -3090,6 +3090,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 386f40ad68cdd3c4fbcb471ef2d93772, type: 3}
+--- !u!4 &610341420 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4702229198241056, guid: 0ba258545da721e488ecb71ffd143b6f, type: 3}
+  m_PrefabInstance: {fileID: 1683483475}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &613789243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7782,6 +7787,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5721871791262741160, guid: 69202e679e9f7e6408bceb12b855e652, type: 3}
+--- !u!114 &1639863173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639863168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b4bf220cccc1184aac0e3ee0e2b643b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rangoAtaque: 10
+  "da\xF1o": 10
+  tiempoEntreAtaques: 1.5
+  granjero: {fileID: 718099387}
+  granja: {fileID: 610341420}
+  rangoPrioridadGranjero: 10
 --- !u!1 &1648757056
 GameObject:
   m_ObjectHideFlags: 0
@@ -9495,6 +9518,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 69202e679e9f7e6408bceb12b855e652, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1639863172}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 69202e679e9f7e6408bceb12b855e652, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1639863173}
   m_SourcePrefab: {fileID: 100100000, guid: 69202e679e9f7e6408bceb12b855e652, type: 3}
 --- !u!1 &1947867013
 GameObject:
