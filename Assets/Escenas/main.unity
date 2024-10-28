@@ -2234,7 +2234,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -89.25566, y: 516.6448}
+  m_AnchoredPosition: {x: -91.6, y: 516.6448}
   m_SizeDelta: {x: 439.725, y: 51.09549}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &406057559
@@ -2958,6 +2958,37 @@ MonoBehaviour:
   ActivacionInventario: 0
   InterfazCultivos: 0
   adminCultivos: {fileID: 0}
+--- !u!1 &531861009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 531861010}
+  m_Layer: 0
+  m_Name: Respawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &531861010
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531861009}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 288.97, y: 6.74, z: 212.39}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &556160346
 GameObject:
   m_ObjectHideFlags: 0
@@ -3570,6 +3601,7 @@ GameObject:
   - component: {fileID: 718099386}
   - component: {fileID: 718099388}
   - component: {fileID: 718099389}
+  - component: {fileID: 718099390}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3660,6 +3692,19 @@ MonoBehaviour:
   oleadasParaGanar: 2
   pasarOleada: {fileID: 0}
   barraDeVida: {fileID: 0}
+--- !u!114 &718099390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718099384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c51500aba3883f34ba485bbd03c67c8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puntorespawn: {fileID: 531861010}
 --- !u!4 &727609731 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4998326679312090, guid: 2b519101e10d4a74580d4c86ac9e03e6, type: 3}
@@ -10418,3 +10463,4 @@ SceneRoots:
   - {fileID: 1443421821}
   - {fileID: 1944440577}
   - {fileID: 405162523}
+  - {fileID: 531861010}
