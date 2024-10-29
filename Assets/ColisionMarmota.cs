@@ -1,23 +1,24 @@
-﻿
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ColisionMarmota : MonoBehaviour
 {
-    public LayerMask Marmota;
-    public float tiempo = 5.0f;
-    private float tiempoMuerte = 0f; 
+    public float tiempo = 3.0f;
+    private float tiempoMuerte = 0f;
+    public GameObject pantallaDerrota;
 
-    void OnCollisionStay(Collision collision)
+    void OnTriggerStay(Collider other)
     {
-        if ((Marmota.value & (1 << collision.gameObject.layer)) != 0)
+        GameObject objeto = other.gameObject;
+        if ((objeto.tag == "Enemy") && (Time.timeScale == 1))
         {
           tiempoMuerte += Time.deltaTime;
           if (tiempoMuerte >= tiempo)
             {
-              Debug.Log("PERDISTE");
-              tiempoMuerte = 0f; 
+              Time.timeScale = 0;
+              tiempoMuerte = 0f;
+              pantallaDerrota.SetActive(true);
             }
         }
         else

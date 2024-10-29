@@ -9,7 +9,7 @@ public class menuOpciones : MonoBehaviour
     public void cargarJuego(string nombre)
     {
         SceneManager.LoadScene(nombre);
-
+        Time.timeScale = 1;
     }
     public void salir() { Application.Quit(); Debug.Log("Saliendo del juego"); }
 }
