@@ -1605,6 +1605,7 @@ MonoBehaviour:
   disparoSonido: {fileID: 8300000, guid: 0dc0293f0d3910346af5619d4990f483, type: 3}
   recargaSonido: {fileID: 8300000, guid: 37c3f88ecfc01184b9e06f00fe423fe9, type: 3}
   text: {fileID: 1007965736}
+  contadorAsesinatos: 0
 --- !u!114 &277034386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1729,6 +1730,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &277034390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277034381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4f91b15ae006174696f27f61bc925b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contador: {fileID: 277034383}
+  pantallaVictoria: {fileID: 1030276313}
 --- !u!1 &277230616
 GameObject:
   m_ObjectHideFlags: 0
@@ -2973,6 +2988,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 984844f25f71945478674d78116eaa48, type: 3}
       insertIndex: -1
       addedObject: {fileID: 277034386}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 984844f25f71945478674d78116eaa48, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 277034390}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 984844f25f71945478674d78116eaa48, type: 3}
       insertIndex: -1
       addedObject: {fileID: 277034387}

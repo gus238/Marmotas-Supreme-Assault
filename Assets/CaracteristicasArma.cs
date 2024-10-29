@@ -33,6 +33,7 @@ public class CaracteristicasArma : MonoBehaviour
     public AudioClip disparoSonido;
     public AudioClip recargaSonido;
     public TextMeshProUGUI text;
+    public int contadorAsesinatos;
 
     private void MiInput()
     {
@@ -68,6 +69,7 @@ public class CaracteristicasArma : MonoBehaviour
             //if (rayHit.collider.gameObject.CompareTag("Enemy"))
             //{
             rayHit.collider.gameObject.SetActive(false);
+            contadorAsesinatos++;
                 //rayHit.collider.getComponent<ShootingAI>().TakeDamage(damage);
             //}
         }
@@ -102,6 +104,7 @@ public class CaracteristicasArma : MonoBehaviour
     }
     void Start()
     {
+        contadorAsesinatos = 0;
         balasRestantes = tamañoCargador;
         listoParaDisparar = true;
     }
