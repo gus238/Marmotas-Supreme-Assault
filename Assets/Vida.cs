@@ -7,8 +7,25 @@ public class BarraDeVida : MonoBehaviour
 {
     public Slider barraDeVida;
     public float vidaMaxima = 100f;
-    public float vidaActual; 
+    public float vidaActual;
+    public GameObject pantallaDerrota;
 
+    void OnTriggerStay(Collider other)
+    {
+        GameObject objeto = other.gameObject;
+        if ((objeto.tag == "Enemy") && (Time.timeScale == 1))
+        {
+            EnemyAIMovement enemigo = objeto.GetComponent<EnemyAIMovement>();
+            if (enemigo != null)
+            {
+                ReducirVida(enemigo.Damage);
+            }
+        }
+        else
+        {
+
+        }
+    }
     void Start()
     {
         vidaActual = vidaMaxima;
@@ -18,9 +35,10 @@ public class BarraDeVida : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (vidaActual <= 0)
         {
-            ReducirVida(10f); 
+            Time.timeScale = 0;
+            pantallaDerrota.SetActive(true);
         }
     }
 

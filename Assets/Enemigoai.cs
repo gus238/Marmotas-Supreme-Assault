@@ -19,9 +19,9 @@ public class EnemyAIMovement : MonoBehaviour
     float distanceToTarget = Mathf.Infinity;
 
     // Health and Speed characteristics of enemy
-    [SerializeField] int Damage = 10;
+    [SerializeField] public float Damage = 10f;
     [SerializeField] float turningSpeed = 5f;
-    [SerializeField] float attackCooldown = 1.5f;
+    [SerializeField] public float attackCooldown = 1.5f;
     float lastAttackTime = -Mathf.Infinity;
 
     // Bool to know whether the enemy is activated or not
