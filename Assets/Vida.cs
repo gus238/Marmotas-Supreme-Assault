@@ -9,6 +9,7 @@ public class BarraDeVida : MonoBehaviour
     public float vidaMaxima = 100f;
     public float vidaActual;
     public GameObject pantallaDerrota;
+    private Coroutine damageCoroutine;
 
     void OnTriggerStay(Collider other)
     {
@@ -16,14 +17,33 @@ public class BarraDeVida : MonoBehaviour
         if ((objeto.tag == "Enemy") && (Time.timeScale == 1))
         {
             EnemyAIMovement enemigo = objeto.GetComponent<EnemyAIMovement>();
-            if (enemigo != null)
+            if (enemigo != null && damageCoroutine == null)
             {
-                ReducirVida(enemigo.Damage);
+                // Empieza a hacer daño a intervalos de tiempo
+                damageCoroutine = StartCoroutine(ReducirVidaConIntervalo(enemigo));
             }
         }
         else
         {
 
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        // Detiene el daño cuando el enemigo sale del área
+        if (other.CompareTag("Enemy") && damageCoroutine != null)
+        {
+            StopCoroutine(damageCoroutine);
+            damageCoroutine = null;
+        }
+    }
+
+    private IEnumerator ReducirVidaConIntervalo(EnemyAIMovement enemigo)
+    {
+        while (true)
+        {
+            ReducirVida(enemigo.Damage); // Aplica el daño del enemigo
+            yield return new WaitForSeconds(enemigo.attackCooldown); // Espera el tiempo de cooldown
         }
     }
     void Start()
