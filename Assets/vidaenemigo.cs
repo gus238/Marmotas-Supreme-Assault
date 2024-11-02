@@ -36,7 +36,7 @@ public class VidaEnemigo : MonoBehaviour
    
     private void Die()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
         OnDeath.Invoke();
     }
 }
