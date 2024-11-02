@@ -14,6 +14,10 @@ public class CaracteristicasArma : MonoBehaviour
     public int tamañoCargador;
     public int tamañoRafaga;
     public bool mantenerApretado;
+    
+    [Header("Propiedades del Arma")]
+    public int damage = 3; 
+
 
     [Header("Estado de Munición")]
     int balasRestantes;
@@ -66,12 +70,11 @@ public class CaracteristicasArma : MonoBehaviour
         {
             Debug.Log(rayHit.collider.name);
 
-            //if (rayHit.collider.gameObject.CompareTag("Enemy"))
-            //{
-            rayHit.collider.gameObject.SetActive(false);
-            contadorAsesinatos++;
-                //rayHit.collider.getComponent<ShootingAI>().TakeDamage(damage);
-            //}
+            VidaEnemigo vidaEnemigo = rayHit.collider.gameObject.GetComponent<VidaEnemigo>();
+            if (vidaEnemigo != null)
+            {
+                vidaEnemigo.TakeDamage(damage);
+            }
         }
 
         balasRestantes--;
@@ -106,7 +109,7 @@ public class CaracteristicasArma : MonoBehaviour
     {
         contadorAsesinatos = 0;
         balasRestantes = tamañoCargador;
-        listoParaDisparar = true;
+        listoParaDisparar = true; 
     }
 
     

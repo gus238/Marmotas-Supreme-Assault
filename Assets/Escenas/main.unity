@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.14799765, g: 0.1128834, b: 0.10320426, a: 1}
+  m_IndirectSpecularColor: {r: 0.14798923, g: 0.11289671, b: 0.10325852, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2024,6 +2024,7 @@ MonoBehaviour:
   "tama\xF1oCargador": 8
   "tama\xF1oRafaga": 1
   mantenerApretado: 0
+  damage: 3
   fpsCam: {fileID: 1458250022}
   puntoSalida: {fileID: 1388564865}
   tagEnemigo:
@@ -7716,6 +7717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b6e39e295096e4ca59d6b37ddb0fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vidamax: 100
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -8618,6 +8620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b6e39e295096e4ca59d6b37ddb0fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vidamax: 10
   OnDeath:
     m_PersistentCalls:
       m_Calls:
