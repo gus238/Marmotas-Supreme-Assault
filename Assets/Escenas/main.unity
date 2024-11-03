@@ -2872,7 +2872,7 @@ GameObject:
   - component: {fileID: 405162520}
   - component: {fileID: 405162519}
   m_Layer: 0
-  m_Name: Spawn
+  m_Name: ZonaSpawnEnemigos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
