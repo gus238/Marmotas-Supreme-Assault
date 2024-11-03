@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ZonaDeSpawnManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class ZonaDeSpawnManager : MonoBehaviour
     public int enemigosPorOleada = 5;      // Número de enemigos por oleada
     public int jefePorOleada = 1;
     private int oleadaActual = 0;          // Contador de la oleada actual
+    public TextMeshProUGUI enemigosRestantes;
 
     // Método Start se ejecuta al inicio
     void Start()
@@ -52,6 +54,7 @@ public class ZonaDeSpawnManager : MonoBehaviour
             Debug.Log("¡Todas las oleadas completadas!");
 
         }
+        enemigosRestantes.SetText("Enemigos restantes: " + GameObject.FindGameObjectsWithTag("Enemy").Length);
     }
     // Método para generar una oleada de enemigos
     public void SpawnOleadaEnemigos(GameObject prefabEnemigo, int cantidadEnemigos)
