@@ -14,6 +14,7 @@ public class ZonaDeSpawnManager : MonoBehaviour
     public int jefePorOleada = 1;
     private int oleadaActual = 0;          // Contador de la oleada actual
     public TextMeshProUGUI enemigosRestantes;
+    public TextMeshProUGUI oleadas;
 
     // Método Start se ejecuta al inicio
     void Start()
@@ -55,6 +56,7 @@ public class ZonaDeSpawnManager : MonoBehaviour
 
         }
         enemigosRestantes.SetText("Enemigos restantes: " + GameObject.FindGameObjectsWithTag("Enemy").Length);
+        oleadas.SetText("Oleada: " + oleadaActual);
     }
     // Método para generar una oleada de enemigos
     public void SpawnOleadaEnemigos(GameObject prefabEnemigo, int cantidadEnemigos)
