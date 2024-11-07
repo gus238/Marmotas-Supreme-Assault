@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyMarmot : MonoBehaviour
 {
-    public int coinAmount = 5; // Cantidad de monedas que esta marmota específica dará al morir
+    public int coinAmount = 5; // Cantidad de monedas que esta marmota especï¿½fica darï¿½ al morir
 
     void OnDeath()
     {
