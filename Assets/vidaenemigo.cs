@@ -1,13 +1,16 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
-
 public class VidaEnemigo : MonoBehaviour
 {
-    public int vidamax = 10;
     int vidaactual;
+    public int vidamax = 10;
+    int valorMonedas;
+    public int valorMinMonedas;
+    public int valorMaxMonedas;
+    public GameObject player;
 
-    // Event to handle enemy death
+
     public UnityEvent OnDeath;
 
     void Start()
@@ -36,7 +39,9 @@ public class VidaEnemigo : MonoBehaviour
    
     private void Die()
     {
-        gameObject.SetActive(false);
+        valorMonedas = UnityEngine.Random.Range(valorMinMonedas, valorMaxMonedas + 1);
+        player.GetComponent<economiaJugador>().RecibirMonedas(valorMonedas);
         OnDeath.Invoke();
+        gameObject.SetActive(false);
     }
 }
