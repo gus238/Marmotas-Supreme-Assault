@@ -7,14 +7,22 @@ public class economiaJugador : MonoBehaviour
 {
     public int cantidadMonedas;
     public TextMeshProUGUI cantMonedas;
+    public float tiempoJuego = 0f;
+    
 
     void Start()
     {
-        cantidadMonedas = 0;
+        cantidadMonedas = 0;   
     }
-
+    
     void Update()
     {
+        tiempoJuego += Time.deltaTime;
+        if (tiempoJuego >= 1f)
+        {
+            cantidadMonedas += 1;
+            tiempoJuego = 0f;
+        }
         cantMonedas.SetText(cantidadMonedas.ToString());
     }
 
