@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.14789978, g: 0.11285083, b: 0.10322417, a: 1}
+  m_IndirectSpecularColor: {r: 0.14799765, g: 0.1128834, b: 0.10320426, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3133,8 +3133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f91b15ae006174696f27f61bc925b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contador: {fileID: 277034383}
-  pantallaVictoria: {fileID: 1030276313}
 --- !u!1 &277230616
 GameObject:
   m_ObjectHideFlags: 0
@@ -10531,63 +10529,6 @@ Transform:
   - {fileID: 1691867363}
   m_Father: {fileID: 907330183}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1057660206
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 01536074951ec074bb93c8f2c9d70257, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 275.76825
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 01536074951ec074bb93c8f2c9d70257, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.5015587
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 01536074951ec074bb93c8f2c9d70257, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 224.86652
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 01536074951ec074bb93c8f2c9d70257, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 01536074951ec074bb93c8f2c9d70257, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 01536074951ec074bb93c8f2c9d70257, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 01536074951ec074bb93c8f2c9d70257, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 01536074951ec074bb93c8f2c9d70257, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 01536074951ec074bb93c8f2c9d70257, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 01536074951ec074bb93c8f2c9d70257, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 01536074951ec074bb93c8f2c9d70257, type: 3}
-      propertyPath: m_Name
-      value: marmotoide@Unarmed Walk Forward
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 01536074951ec074bb93c8f2c9d70257, type: 3}
 --- !u!1001 &1062633240
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20746,4 +20687,3 @@ SceneRoots:
   - {fileID: 1017136421}
   - {fileID: 736699806}
   - {fileID: 609344862}
-  - {fileID: 1057660206}
