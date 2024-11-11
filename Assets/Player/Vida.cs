@@ -55,6 +55,8 @@ public class BarraDeVida : MonoBehaviour
         vidaActual = vidaMaxima;
         barraDeVida.maxValue = vidaMaxima;
         barraDeVida.value = vidaActual;
+        barraDeVidaAmarilla.value = vidaActual;
+        barraDeVidaAmarilla.maxValue = vidaMaxima;
     }
 
     void Update()
