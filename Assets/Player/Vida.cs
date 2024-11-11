@@ -6,13 +6,16 @@ using UnityEngine.UI;
 public class BarraDeVida : MonoBehaviour
 {
     public Slider barraDeVida;
+    public Slider barraDeVidaAmarilla;
     public float vidaMaxima = 100f;
     public float vidaActual;
     public GameObject pantallaDerrota;
     private Coroutine damageCoroutine;
+    private float velBarraAmarilla = 0.05f;
 
     void OnTriggerStay(Collider other)
     {
+       
         GameObject objeto = other.gameObject;
         if ((objeto.tag == "Enemy") && (Time.timeScale == 1))
         {
@@ -21,6 +24,7 @@ public class BarraDeVida : MonoBehaviour
             {
                 // Empieza a hacer daño a intervalos de tiempo
                 damageCoroutine = StartCoroutine(ReducirVidaConIntervalo(enemigo));
+               
             }
         }
         else
@@ -59,6 +63,10 @@ public class BarraDeVida : MonoBehaviour
         {
             Time.timeScale = 0;
             pantallaDerrota.SetActive(true);
+        }
+        if (barraDeVida.value != barraDeVidaAmarilla.value)
+        {
+            barraDeVidaAmarilla.value = Mathf.Lerp(barraDeVidaAmarilla.value, vidaActual, velBarraAmarilla);
         }
     }
 
