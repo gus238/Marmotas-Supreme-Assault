@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.14799765, g: 0.1128834, b: 0.10320426, a: 1}
+  m_IndirectSpecularColor: {r: 0.14798923, g: 0.11289671, b: 0.10325852, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5318,9 +5318,9 @@ MonoBehaviour:
   pantallaVictoria: {fileID: 1030276313}
   prefabJefe: {fileID: 1379482430}
   prefabEnemigo: {fileID: 1536338393}
-  tiempoEntreSpawn: 2
+  tiempoEntreSpawn: 3
   maxOleadas: 5
-  enemigosPorOleada: 1
+  enemigosPorOleada: 2
   jefePorOleada: 1
   enemigosRestantes: {fileID: 2110005773}
   oleadas: {fileID: 501713608}

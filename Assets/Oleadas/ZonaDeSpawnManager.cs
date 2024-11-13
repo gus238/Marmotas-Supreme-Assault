@@ -10,7 +10,7 @@ public class ZonaDeSpawnManager : MonoBehaviour
     public GameObject prefabEnemigo;       // Prefab del enemigo que se va a instanciar
     public float tiempoEntreSpawn = 10f;// Tiempo entre oleadas en segundos
     public int maxOleadas = 5;             // Número máximo de oleadas
-    public int enemigosPorOleada = 5;      // Número de enemigos por oleada
+    public int enemigosPorOleada = 2;      // Número de enemigos por oleada
     public int jefePorOleada = 1;
     private int oleadaActual = 0;          // Contador de la oleada actual
     public TextMeshProUGUI enemigosRestantes;
@@ -31,7 +31,7 @@ public class ZonaDeSpawnManager : MonoBehaviour
             // Esperar hasta que no haya enemigos vivos
             while (GameObject.FindGameObjectsWithTag("Enemy").Length > 0)
             {
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(3f);
             }
             oleadaActual++;
             Debug.Log($"¡Oleada {oleadaActual} comenzando!");
@@ -43,6 +43,7 @@ public class ZonaDeSpawnManager : MonoBehaviour
             }
 
             yield return new WaitForSeconds(tiempoEntreSpawn);  // Espera antes de verificar nuevamente
+            enemigosPorOleada = oleadaActual * 2;
         }
     }
 
