@@ -36,14 +36,13 @@ public class ZonaDeSpawnManager : MonoBehaviour
             oleadaActual++;
             Debug.Log($"¡Oleada {oleadaActual} comenzando!");
             // Generar enemigos en la posición del GameObject donde está asignado este script
-            SpawnOleadaEnemigos(prefabEnemigo, enemigosPorOleada);
+            SpawnOleadaEnemigos(prefabEnemigo, (enemigosPorOleada * oleadaActual));
             if ((oleadaActual % 5) == 0 || oleadaActual == maxOleadas)
             {
                 SpawnJefeFinal(prefabJefe, jefePorOleada);
             }
 
             yield return new WaitForSeconds(tiempoEntreSpawn);  // Espera antes de verificar nuevamente
-            enemigosPorOleada = oleadaActual * 2;
         }
     }
 
