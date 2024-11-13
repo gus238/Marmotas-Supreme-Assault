@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.14799765, g: 0.1128834, b: 0.10320426, a: 1}
+  m_IndirectSpecularColor: {r: 0.14789978, g: 0.11285083, b: 0.10322417, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8580,6 +8580,7 @@ GameObject:
   - component: {fileID: 718099390}
   - component: {fileID: 718099393}
   - component: {fileID: 718099394}
+  - component: {fileID: 718099395}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -8715,6 +8716,21 @@ MonoBehaviour:
   vidaMaxima: 100
   vidaActual: 0
   pantallaDerrota: {fileID: 1095059009}
+--- !u!114 &718099395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718099384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fb2224e6e44be94290ca57beab1dbb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashDistance: 2
+  dashCooldown: 0.5
+  dashDuration: 0.1
 --- !u!4 &722057142 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3163170946955162814, guid: 387f66ad181e92a48a858cf3a9e7df2f, type: 3}
