@@ -1,12 +1,15 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Moneda : MonoBehaviour
 {
-    public int valorMoneda = 1; // Cantidad de monedas que otorga esta moneda
+    public int valorMoneda = 5; // Cantidad de monedas que esta moneda otorga al jugador
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) // Asegúrate de que el jugador tenga la etiqueta "Player"
+        // Detecta si el objeto que colisiona es el jugador
+        if (other.CompareTag("Player"))
         {
             economiaJugador economia = other.GetComponent<economiaJugador>();
             if (economia != null)
