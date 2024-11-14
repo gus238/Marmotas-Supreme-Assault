@@ -8844,7 +8844,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 736699802}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f75dde71bf482964a9d540c5a5fb39d6, type: 3}
   m_Name: 
@@ -12397,8 +12397,12 @@ MonoBehaviour:
   mina: {fileID: 736699802}
   hudMina: {fileID: 33068018}
   player: {fileID: 718099384}
+  monedaPrefab: {fileID: 1498403948531744, guid: fa2c57d3f28a5e6419393e8bc3eeb32a, type: 3}
   coste: 10
   costeTexto: {fileID: 486624238}
+  intervaloGeneracionMonedas: 5
+  tiempoPorPlata: 10
+  cantDineroPorTick: 5
 --- !u!135 &1017136418
 SphereCollider:
   m_ObjectHideFlags: 0
