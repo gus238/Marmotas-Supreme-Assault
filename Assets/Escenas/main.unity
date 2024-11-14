@@ -3135,7 +3135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cultivo: {fileID: 1881540422}
   hudCultivo: {fileID: 1862005721}
-  player: {fileID: 1711768928}
+  player: {fileID: 718099384}
   coste: 5
   costeTexto: {fileID: 486624238}
 --- !u!65 &235389068
@@ -8833,7 +8833,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 736699802}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f75dde71bf482964a9d540c5a5fb39d6, type: 3}
   m_Name: 
@@ -12364,6 +12364,7 @@ GameObject:
   - component: {fileID: 1017136419}
   - component: {fileID: 1017136418}
   - component: {fileID: 1017136417}
+  - component: {fileID: 1017136422}
   m_Layer: 3
   m_Name: PuntoCompra1
   m_TagString: Untagged
@@ -12386,9 +12387,9 @@ MonoBehaviour:
   mina: {fileID: 736699802}
   hudMina: {fileID: 33068018}
   player: {fileID: 718099384}
-  monedaPrefab: {fileID: 1950871307682000, guid: 01348926c7cbb3347a006c37204131c3, type: 3}
+  monedaPrefab: {fileID: 1747087998}
   coste: 10
-  intervaloGeneracionMonedas: 5
+  intervaloGeneracionMonedas: 2
   costeTexto: {fileID: 486624238}
 --- !u!135 &1017136418
 SphereCollider:
@@ -12476,6 +12477,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1017136422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017136416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cad826dc0e41684ba7cca7400372323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  valorMoneda: 5
+  jugador: {fileID: 0}
 --- !u!1 &1018838974
 GameObject:
   m_ObjectHideFlags: 0
@@ -21807,6 +21822,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3973425259898728682, guid: 01348926c7cbb3347a006c37204131c3, type: 3}
+      propertyPath: jugador
+      value: 
+      objectReference: {fileID: 718099384}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

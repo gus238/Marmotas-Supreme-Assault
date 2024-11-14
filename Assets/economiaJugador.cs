@@ -17,13 +17,16 @@ public class economiaJugador : MonoBehaviour
 
     void Update()
     {
-        // Genera monedas automáticamente cada segundo
-        tiempoJuego += Time.deltaTime;
-        if (tiempoJuego >= 1f)
+        // Generación automática de monedas si la mina está activa
+        if (cantidadMonedas > 0)
         {
-            cantidadMonedas += 1;
-            tiempoJuego = 0f;
-            ActualizarUI();
+            tiempoJuego += Time.deltaTime;
+            if (tiempoJuego >= 1f)  // Genera una moneda cada segundo si se activa la mina
+            {
+                cantidadMonedas += 1;
+                tiempoJuego = 0f;
+                ActualizarUI();
+            }
         }
     }
 

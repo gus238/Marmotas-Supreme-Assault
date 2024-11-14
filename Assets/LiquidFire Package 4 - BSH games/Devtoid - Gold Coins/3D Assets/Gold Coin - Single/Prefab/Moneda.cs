@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class Moneda : MonoBehaviour
 {
-    public int valorMoneda = 5; // Cantidad de monedas que esta moneda otorga al jugador
+    public int valorMoneda = 1;  // Cuántas monedas da esta moneda
+    public GameObject jugador;  // El objeto del jugador, que puedes arrastrar desde el Inspector
 
     private void OnTriggerEnter(Collider other)
     {
-        // Detecta si el objeto que colisiona es el jugador
-        if (other.CompareTag("Player"))
+        // Verifica si el objeto que colisiona es el jugador asignado
+        if (other.gameObject == jugador)
         {
-            economiaJugador economia = other.GetComponent<economiaJugador>();
+            economiaJugador economia = jugador.GetComponent<economiaJugador>();
             if (economia != null)
             {
-                economia.RecibirMonedas(valorMoneda); // Agrega las monedas al jugador
-                Destroy(gameObject); // Destruye la moneda después de recogerla
+                economia.RecibirMonedas(valorMoneda);  // Suma las monedas al jugador
+                Destroy(gameObject);  // Destruye la moneda después de que el jugador la recoge
             }
         }
     }
