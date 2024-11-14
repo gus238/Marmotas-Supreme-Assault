@@ -12,13 +12,14 @@ public class musicaEntreEscenas : MonoBehaviour
     {
         if (instance == null)
         {
+            gameObject.SetActive(true);
             instance = this;
             DontDestroyOnLoad(gameObject);
             musicaMenu = GetComponent<AudioSource>();
         }
         else
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
     void OnEnable()
@@ -38,6 +39,13 @@ public class musicaEntreEscenas : MonoBehaviour
         if (scene.name == escenaJuego && musicaMenu.isPlaying)
         {
             musicaMenu.Stop();
+        }
+        else
+        {
+            if (!musicaMenu.isPlaying)
+            {
+                musicaMenu.Play();
+            }
         }
     }
 }
