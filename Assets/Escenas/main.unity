@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.14799765, g: 0.1128834, b: 0.10320426, a: 1}
+  m_IndirectSpecularColor: {r: 0.14798923, g: 0.11289671, b: 0.10325852, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17130,12 +17130,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b6e39e295096e4ca59d6b37ddb0fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vidamarmota: {fileID: 487991682}
   vidamax: 20
   valorMinMonedas: 20
   valorMaxMonedas: 35
   player: {fileID: 718099384}
   barraDeVida: {fileID: 1862005723}
   barraDeVidaAmarilla: {fileID: 1589918455}
+  tiempovida: 0
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -19028,12 +19030,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b6e39e295096e4ca59d6b37ddb0fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vidamarmota: {fileID: 1194113970}
   vidamax: 10
   valorMinMonedas: 2
   valorMaxMonedas: 5
   player: {fileID: 718099384}
   barraDeVida: {fileID: 689624519}
   barraDeVidaAmarilla: {fileID: 2064762958}
+  tiempovida: 0
   OnDeath:
     m_PersistentCalls:
       m_Calls:

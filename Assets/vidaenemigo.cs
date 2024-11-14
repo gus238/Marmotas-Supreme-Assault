@@ -4,6 +4,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 public class VidaEnemigo : MonoBehaviour
 {
+    public GameObject vidamarmota;
     int vidaactual;
     public int vidamax = 10;
     int valorMonedas;
@@ -13,12 +14,14 @@ public class VidaEnemigo : MonoBehaviour
     public Slider barraDeVida;
     public Slider barraDeVidaAmarilla;
     private float velBarraAmarilla = 0.05f;
+    public float tiempovida = 0.0f;
 
 
     public UnityEvent OnDeath;
 
     void Start()
     {
+        vidamarmota.SetActive(false);
         vidaactual = vidamax;
         barraDeVida.maxValue = vidamax;
         barraDeVida.value = vidaactual;
@@ -38,10 +41,14 @@ public class VidaEnemigo : MonoBehaviour
 
     public void ReducirVida(int cantidad)
     {
+        vidamarmota.SetActive(true);
         vidaactual -= cantidad;
         vidaactual = Mathf.Clamp(vidaactual, 0, vidamax);
-
         barraDeVida.value = vidaactual;
+        tiempovida = 0f;
+        
+
+
     }
 
     // Method to check if enemy is dead
@@ -53,10 +60,18 @@ public class VidaEnemigo : MonoBehaviour
 
     void Update()
     {
+        tiempovida += Time.deltaTime;
         if (barraDeVida.value != barraDeVidaAmarilla.value)
         {
             barraDeVidaAmarilla.value = Mathf.Lerp(barraDeVidaAmarilla.value, vidaactual, velBarraAmarilla);
+            if (tiempovida >= 2f)
+            {
+                vidamarmota.SetActive(false);
+                tiempovida = 0f;
+            }
+            
         }
+      
     }
 
     // Method to handle enemy death
