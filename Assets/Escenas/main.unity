@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.14798923, g: 0.11289671, b: 0.10325852, a: 1}
+  m_IndirectSpecularColor: {r: 0.14789978, g: 0.11285083, b: 0.10322417, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12386,12 +12386,10 @@ MonoBehaviour:
   mina: {fileID: 736699802}
   hudMina: {fileID: 33068018}
   player: {fileID: 718099384}
-  monedaPrefab: {fileID: 1498403948531744, guid: fa2c57d3f28a5e6419393e8bc3eeb32a, type: 3}
+  monedaPrefab: {fileID: 1950871307682000, guid: 01348926c7cbb3347a006c37204131c3, type: 3}
   coste: 10
-  costeTexto: {fileID: 486624238}
   intervaloGeneracionMonedas: 5
-  tiempoPorPlata: 10
-  cantDineroPorTick: 5
+  costeTexto: {fileID: 486624238}
 --- !u!135 &1017136418
 SphereCollider:
   m_ObjectHideFlags: 0

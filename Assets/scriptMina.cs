@@ -8,18 +8,14 @@ public class scriptMina : MonoBehaviour
     public GameObject mina;
     public GameObject hudMina;
     public GameObject player;
-    public GameObject monedaPrefab; // Prefab de la moneda que se generará
+    public GameObject monedaPrefab; // Prefab de la moneda física que se generará
     public int coste;
+    public float intervaloGeneracionMonedas = 5f; // Intervalo en segundos para generar monedas
     private bool construido;
-    private economiaJugador monedas;
+    private float tiempoGeneracion;
+    economiaJugador monedas;
+    int dinero;
     public TextMeshProUGUI costeTexto;
-
-    public float intervaloGeneracionMonedas = 5f; // Intervalo en segundos para generar monedas físicas
-    private float tiempoGeneracionMonedas;
-
-    public int tiempoPorPlata = 10; // Intervalo en segundos para añadir dinero directo al jugador
-    public int cantDineroPorTick = 5; // Cantidad de dinero directo por intervalo
-    private float tiempoGeneracionDinero = 0f;
 
     void Start()
     {
@@ -28,7 +24,23 @@ public class scriptMina : MonoBehaviour
         mina.SetActive(false);
         monedas = player.GetComponent<economiaJugador>();
         costeTexto.SetText("Coste: " + coste);
-        tiempoGeneracionMonedas = intervaloGeneracionMonedas; // Inicializa el temporizador para las monedas físicas
+        tiempoGeneracion = 0f; // Inicializa el temporizador en 0
+    }
+
+    void Update()
+    {
+        dinero = monedas.cantidadMonedas;
+
+        // Genera monedas en intervalos después de construir la mina
+        if (construido)
+        {
+            tiempoGeneracion += Time.deltaTime;
+            if (tiempoGeneracion >= intervaloGeneracionMonedas)
+            {
+                GenerarMoneda();
+                tiempoGeneracion = 0f; // Reinicia el temporizador
+            }
+        }
     }
 
     void OnTriggerStay(Collider objeto)
@@ -37,11 +49,11 @@ public class scriptMina : MonoBehaviour
         {
             hudMina.SetActive(true);
 
-            if (Input.GetKey(KeyCode.E) && monedas.cantidadMonedas >= coste && !construido)
+            if (Input.GetKey(KeyCode.E) && dinero >= coste && !construido)
             {
                 mina.SetActive(true);
                 construido = true;
-                monedas.RecibirMonedas(-coste); // Resta el coste al jugador
+                monedas.RecibirMonedas(-coste);
             }
         }
     }
@@ -51,31 +63,9 @@ public class scriptMina : MonoBehaviour
         hudMina.SetActive(false);
     }
 
-    void Update()
+    // Método para generar una moneda en la posición de la mina
+    void GenerarMoneda()
     {
-        if (construido)
-        {
-            // Generación de monedas físicas
-            tiempoGeneracionMonedas -= Time.deltaTime;
-            if (tiempoGeneracionMonedas <= 0f)
-            {
-                GenerarMonedaFisica();
-                tiempoGeneracionMonedas = intervaloGeneracionMonedas; // Reinicia el temporizador
-            }
-
-            // Generación de dinero directo al jugador
-            tiempoGeneracionDinero += Time.deltaTime;
-            if (tiempoGeneracionDinero >= tiempoPorPlata)
-            {
-                monedas.RecibirMonedas(cantDineroPorTick);
-                tiempoGeneracionDinero = 0f; // Reinicia el temporizador
-            }
-        }
-    }
-
-    void GenerarMonedaFisica()
-    {
-        // Genera una moneda física en la posición de la mina
         Instantiate(monedaPrefab, mina.transform.position + Vector3.up, Quaternion.identity);
     }
 }
