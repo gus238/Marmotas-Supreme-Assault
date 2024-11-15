@@ -9,9 +9,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: a07eb64ed267f2e4981f6a6b59c876de, type: 3}
   m_Name: M4
   m_EditorClassIdentifier: Assembly-CSharp::InventoryItem
   itemName: 
   icon: {fileID: 0}
   isStackable: 0
+  "da\xF1o": 0
+  fireRate: 0
+  rango: 0
+  tiempoRecarga: 0
+  tiempoEntreRafaga: 0
+  "tama\xF1oCargador": 0
+  "tama\xF1oRafaga": 0
+  mantenerApretado: 0
+  disparoSonido: {fileID: 0}
+  recargaSonido: {fileID: 0}
+  shootAnimation: {fileID: 0}
+  balasRestantes: 0
+  balasDisparadas: 0
+  modeloArma: {fileID: 0}
+  puntoDisparo: {fileID: 0}
