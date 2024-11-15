@@ -1,11 +1,9 @@
-// File name: ItemDragHandler
-
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public Item item;
+    public InventoryItem item; // Cambiado de Item a InventoryItem
     public SlotsInv currentSlot;
     private Canvas canvas;
     private RectTransform rectTransform;
@@ -44,12 +42,4 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     {
         currentSlot.ClearSlot();
     }
-}
-
-[System.Serializable]
-public class Item
-{
-    public string itemName;
-    public Sprite icon;
-    public bool isStackable;
 }

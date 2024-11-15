@@ -1,12 +1,10 @@
-// File name: SlotsInv
-
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class SlotsInv : MonoBehaviour, IDropHandler
 {
-    public Item item;
+    public InventoryItem item; // Cambiado de Item a InventoryItem
     public Image icon;
 
     public void OnDrop(PointerEventData eventData)
@@ -19,7 +17,7 @@ public class SlotsInv : MonoBehaviour, IDropHandler
                 if (item != null)
                 {
                     // Swap items if there's already an item in the slot
-                    Item tempItem = item;
+                    InventoryItem tempItem = item;
                     AddItem(draggedItem.item);
                     draggedItem.currentSlot.AddItem(tempItem);
                 }
@@ -32,7 +30,7 @@ public class SlotsInv : MonoBehaviour, IDropHandler
         }
     }
 
-    public void AddItem(Item newItem)
+    public void AddItem(InventoryItem newItem) // Cambiado para aceptar InventoryItem
     {
         item = newItem;
         icon.sprite = newItem.icon;
