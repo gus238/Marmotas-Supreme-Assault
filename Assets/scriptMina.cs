@@ -8,7 +8,7 @@ public class scriptMina : MonoBehaviour
     public GameObject mina;
     public GameObject hudMina;
     public GameObject player;
-    public GameObject monedaPrefab; // Prefab de la moneda física que se generará
+    public GameObject monedaPrefab; // Prefab de la moneda fï¿½sica que se generarï¿½
     public int coste;
     public float intervaloGeneracionMonedas = 5f; // Intervalo en segundos para generar monedas
     private bool construido;
@@ -16,6 +16,7 @@ public class scriptMina : MonoBehaviour
     economiaJugador monedas;
     int dinero;
     public TextMeshProUGUI costeTexto;
+    public GameObject lugarSpawnMonedas;
 
     void Start()
     {
@@ -31,7 +32,7 @@ public class scriptMina : MonoBehaviour
     {
         dinero = monedas.cantidadMonedas;
 
-        // Genera monedas en intervalos después de construir la mina
+        // Genera monedas en intervalos despuï¿½s de construir la mina
         if (construido)
         {
             tiempoGeneracion += Time.deltaTime;
@@ -63,9 +64,9 @@ public class scriptMina : MonoBehaviour
         hudMina.SetActive(false);
     }
 
-    // Método para generar una moneda en la posición de la mina
+    // Mï¿½todo para generar una moneda en la posiciï¿½n de la mina
     void GenerarMoneda()
     {
-        Instantiate(monedaPrefab, mina.transform.position + Vector3.up, Quaternion.identity);
+        Instantiate(monedaPrefab, lugarSpawnMonedas.transform.position + Vector3.up, Quaternion.identity);
     }
 }
