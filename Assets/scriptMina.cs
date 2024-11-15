@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using TMPro.Examples;
 
 public class scriptMina : MonoBehaviour
 {
     public GameObject mina;
     public GameObject hudMina;
     public GameObject player;
-    public GameObject monedaPrefab; // Prefab de la moneda f�sica que se generar�
+    public GameObject monedaPrefab;
     public int coste;
     public float intervaloGeneracionMonedas = 5f; // Intervalo en segundos para generar monedas
     private bool construido;
@@ -31,6 +32,7 @@ public class scriptMina : MonoBehaviour
     void Update()
     {
         dinero = monedas.cantidadMonedas;
+        
 
         // Genera monedas en intervalos despu�s de construir la mina
         if (construido)
@@ -65,8 +67,9 @@ public class scriptMina : MonoBehaviour
     }
 
     // M�todo para generar una moneda en la posici�n de la mina
-    void GenerarMoneda()
+    public void GenerarMoneda()
     {
-        Instantiate(monedaPrefab, lugarSpawnMonedas.transform.position + Vector3.up, Quaternion.identity);
+        GameObject moneda = Instantiate(monedaPrefab, lugarSpawnMonedas.transform.position + Vector3.up, Quaternion.identity);
+        moneda.SetActive(true);
     }
 }

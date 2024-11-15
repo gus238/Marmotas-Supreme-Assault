@@ -64,7 +64,7 @@ public class ZonaDeSpawnManager : MonoBehaviour
         for (int i = 0; i < cantidadEnemigos; i++)
         {
             // Generar enemigos en la posición del GameObject, con un pequeño desplazamiento aleatorio
-            Vector3 posicionSpawn = transform.position + new Vector3(Random.Range(-6f, 6f), 0, Random.Range(-6f, 6f));
+            Vector3 posicionSpawn = transform.position + new Vector3(Random.Range(-15f, 15f), 0, Random.Range(-15f, 15f));
             GameObject nuevoEnemigo = Instantiate(prefabEnemigo, posicionSpawn, Quaternion.identity);
             nuevoEnemigo.SetActive(true);
             Debug.Log("Una nueva marmota ha aparecido en la zona.");
@@ -74,7 +74,7 @@ public class ZonaDeSpawnManager : MonoBehaviour
     {
         for (int i = 0; i < cantidadJefe; i++)
         {
-            Vector3 posicionSpawn = transform.position + new Vector3(Random.Range(-6f, 6f), 0, Random.Range(-6f, 6f));
+            Vector3 posicionSpawn = transform.position + new Vector3(Random.Range(-15f, 15f), 0, Random.Range(-15f, 15f));
             GameObject nuevoJefe = Instantiate(prefabJefe, posicionSpawn, Quaternion.identity);
             nuevoJefe.SetActive(true);
             Debug.Log("Una nueva marmota ha aparecido en la zona.");

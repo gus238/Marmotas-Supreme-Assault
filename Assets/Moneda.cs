@@ -18,9 +18,8 @@ public class Moneda : MonoBehaviour
         // Verifica si el objeto que colisiona es el jugador asignado
         if (other.CompareTag("Player"))
         {
-            monedas = jugador.GetComponent<economiaJugador>();
             monedas.RecibirMonedas(valorMoneda);  // Suma las monedas al jugador
-            Destroy(gameObject);  // Destruye la moneda despu�s de que el jugador la recoge
+            gameObject.SetActive(false);  // Destruye la moneda despu�s de que el jugador la recoge
         }
     }
 }
