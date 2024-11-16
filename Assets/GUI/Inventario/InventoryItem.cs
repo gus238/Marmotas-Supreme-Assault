@@ -9,19 +9,19 @@ public class InventoryItem : ScriptableObject
     public string itemName;
     public Sprite icon;
     public bool isStackable;
-    public int daño;
+    public int dato;
     public float fireRate;
     public float rango;
     public float tiempoRecarga;
     public float tiempoEntreRafaga;
-    public int tamañoCargador;
-    public int tamañoRafaga;
+    public int tamaÃ±oCargador;
+    public int tamaÃ±oRafaga;
     public bool mantenerApretado;
     public AudioClip disparoSonido;
     public AudioClip recargaSonido;
     public AnimationClip shootAnimation;
 
-    [Header("Estado de Munición")]
+    [Header("Estado de Municiï¿½n")]
     public int balasRestantes;
     public int balasDisparadas;
 
@@ -42,27 +42,27 @@ public class InventoryItem : ScriptableObject
                 audioSource.PlayOneShot(disparoSonido);
             }
 
-            // Lógica para raycast del disparo
+            // Lï¿½gica para raycast del disparo
             if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out RaycastHit hit, rango))
             {
                 Debug.Log("Impacto en: " + hit.collider.name);
                 VidaEnemigo vidaEnemigo = hit.collider.GetComponent<VidaEnemigo>();
                 if (vidaEnemigo != null)
                 {
-                    vidaEnemigo.TakeDamage(daño);
+                    vidaEnemigo.TakeDamage(dato);
                 }
             }
         }
         else
         {
-            Debug.Log(itemName + " sin munición!");
+            Debug.Log(itemName + " sin municiï¿½n!");
         }
     }
 
     public void Recargar(AudioSource audioSource)
     {
         Debug.Log("Recargando " + itemName);
-        balasRestantes = tamañoCargador;
+        balasRestantes = tamaÃ±oCargador;
 
         // Reproducir sonido de recarga
         if (recargaSonido != null && audioSource != null)

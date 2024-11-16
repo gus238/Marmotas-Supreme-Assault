@@ -23,8 +23,8 @@ public class CaracteristicasArma : MonoBehaviour
     {
         if (armaActual != null)
         {
-            armaActual.balasRestantes = armaActual.tamañoCargador;
-            text.SetText(armaActual.balasRestantes + " / " + armaActual.tamañoCargador);
+            armaActual.balasRestantes = armaActual.tamaÃ±oCargador;
+            text.SetText(armaActual.balasRestantes + " / " + armaActual.tamaÃ±oCargador);
             InstanciarModeloArma();
         }
     }
@@ -34,7 +34,7 @@ public class CaracteristicasArma : MonoBehaviour
         MiInput();
         if (armaActual != null)
         {
-            text.SetText(armaActual.balasRestantes + " / " + armaActual.tamañoCargador);
+            text.SetText(armaActual.balasRestantes + " / " + armaActual.tamaÃ±oCargador);
         }
     }
 
@@ -43,7 +43,7 @@ public class CaracteristicasArma : MonoBehaviour
         if (armaActual != null)
         {
             bool disparando = armaActual.mantenerApretado ? Input.GetKey(KeyCode.Mouse0) : Input.GetKeyDown(KeyCode.Mouse0);
-            if (Input.GetKeyDown(KeyCode.R) && armaActual.balasRestantes < armaActual.tamañoCargador && !recargando)
+            if (Input.GetKeyDown(KeyCode.R) && armaActual.balasRestantes < armaActual.tamaÃ±oCargador && !recargando)
             {
                 Recargar();
             }
