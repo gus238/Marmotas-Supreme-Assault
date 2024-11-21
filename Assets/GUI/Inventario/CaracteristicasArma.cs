@@ -43,12 +43,12 @@ public class CaracteristicasArma : MonoBehaviour
         if (armaActual != null)
         {
             bool disparando = armaActual.mantenerApretado ? Input.GetKey(KeyCode.Mouse0) : Input.GetKeyDown(KeyCode.Mouse0);
-            if (Input.GetKeyDown(KeyCode.R) && armaActual.balasRestantes < armaActual.tamañoCargador && !recargando)
+            if (Input.GetKeyDown(KeyCode.R) && armaActual.balasRestantes < armaActual.tamañoCargador && !recargando && (Time.timeScale == 1))
             {
                 Recargar();
             }
 
-            if (listoParaDisparar && disparando && !recargando && armaActual.balasRestantes > 0)
+            if (listoParaDisparar && disparando && !recargando && armaActual.balasRestantes > 0 && (Time.timeScale == 1))
             {
                 Disparar();
             }
