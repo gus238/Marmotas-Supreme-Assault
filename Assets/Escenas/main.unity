@@ -5263,12 +5263,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ef20b9f068ed8fe4281913eef9e12b43, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1536338396}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ef20b9f068ed8fe4281913eef9e12b43, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1536338401}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ef20b9f068ed8fe4281913eef9e12b43, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1536338400}
   m_SourcePrefab: {fileID: 100100000, guid: ef20b9f068ed8fe4281913eef9e12b43, type: 3}
 --- !u!4 &288985414 stripped
 Transform:
@@ -6332,7 +6326,7 @@ GameObject:
   - component: {fileID: 405162520}
   - component: {fileID: 405162519}
   m_Layer: 0
-  m_Name: ZonaSpawnEnemigos
+  m_Name: ZonaSpawnEnemigos 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15368,7 +15362,7 @@ GameObject:
   - component: {fileID: 1070842360}
   - component: {fileID: 1070842359}
   m_Layer: 0
-  m_Name: ZonaSpawnEnemigos (1)
+  m_Name: ZonaSpawnEnemigos 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17670,7 +17664,7 @@ GameObject:
   - component: {fileID: 1203903189}
   - component: {fileID: 1203903188}
   m_Layer: 0
-  m_Name: ZonaSpawnEnemigos (2)
+  m_Name: ZonaSpawnEnemigos 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20146,9 +20140,6 @@ MonoBehaviour:
   barraDeVida: {fileID: 1862005723}
   barraDeVidaAmarilla: {fileID: 1589918455}
   tiempovida: 0
-  OnDeath:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &1379482441 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 88794f1468c9e324cb7dc8cfe6cb8fd5, type: 3}
@@ -22124,62 +22115,11 @@ MonoBehaviour:
   barraDeVida: {fileID: 689624519}
   barraDeVidaAmarilla: {fileID: 2064762958}
   tiempovida: 0
-  OnDeath:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!4 &1536338399 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ef20b9f068ed8fe4281913eef9e12b43, type: 3}
   m_PrefabInstance: {fileID: 288439270}
   m_PrefabAsset: {fileID: 0}
---- !u!111 &1536338400
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1536338393}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Animation: {fileID: -203655887218126122, guid: 30c7966745a4ba14f907bdc58b27672b, type: 3}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
---- !u!95 &1536338401
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1536338393}
-  m_Enabled: 0
-  m_Avatar: {fileID: 9000000, guid: 30c7966745a4ba14f907bdc58b27672b, type: 3}
-  m_Controller: {fileID: 9100000, guid: 8401bb8ecda842c49af0c6df21e447d3, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1537008206 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4422725698349158, guid: 2767c12992d890f44b14f433fe854668, type: 3}

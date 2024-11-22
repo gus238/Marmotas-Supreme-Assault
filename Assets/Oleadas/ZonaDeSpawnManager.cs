@@ -68,7 +68,7 @@ public class ZonaDeSpawnManager : MonoBehaviour
             Vector3 posicionSpawn = puntoSpawn.position + new Vector3(Random.Range(-15f, 15f), 0, Random.Range(-15f, 15f));
             GameObject nuevoEnemigo = Instantiate(prefabEnemigo, posicionSpawn, Quaternion.identity);
             nuevoEnemigo.SetActive(true);
-            //Debug.Log("Una nueva marmota ha aparecido en la zona.");
+            Debug.Log("Una nueva marmota ha aparecido en la zona: " + puntoSpawn);
         }
     }
     public void SpawnJefeFinal(GameObject prefabJefe, int cantidadJefe)
@@ -79,7 +79,7 @@ public class ZonaDeSpawnManager : MonoBehaviour
             Vector3 posicionSpawn = puntoSpawn.position + new Vector3(Random.Range(-15f, 15f), 0, Random.Range(-15f, 15f));
             GameObject nuevoJefe = Instantiate(prefabJefe, posicionSpawn, Quaternion.identity);
             nuevoJefe.SetActive(true);
-            //Debug.Log("Una nueva marmota ha aparecido en la zona.");
+            Debug.Log("Una nueva marmota ha aparecido en la zona: " + puntoSpawn);
         }
     }
 }

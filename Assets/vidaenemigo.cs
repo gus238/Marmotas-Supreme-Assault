@@ -16,9 +16,6 @@ public class VidaEnemigo : MonoBehaviour
     private float velBarraAmarilla = 0.05f;
     public float tiempovida = 0.0f;
 
-
-    public UnityEvent OnDeath;
-
     void Start()
     {
         vidamarmota.SetActive(false);
@@ -80,7 +77,6 @@ public class VidaEnemigo : MonoBehaviour
     {
         valorMonedas = UnityEngine.Random.Range(valorMinMonedas, valorMaxMonedas + 1);
         player.GetComponent<economiaJugador>().RecibirMonedas(valorMonedas);
-        OnDeath.Invoke();
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }

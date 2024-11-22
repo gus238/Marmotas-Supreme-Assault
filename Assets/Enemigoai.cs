@@ -84,7 +84,7 @@ public class EnemyAIMovement : MonoBehaviour
             if (navMeshAgent.isOnNavMesh && navMeshAgent.pathStatus == NavMeshPathStatus.PathComplete)
             {
                 navMeshAgent.SetDestination(Target.position);
-                animator.SetBool("isMoving", true);
+                //animator.SetBool("isMoving", true);
             }
         }
         else
