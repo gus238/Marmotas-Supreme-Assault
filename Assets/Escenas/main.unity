@@ -6353,6 +6353,10 @@ MonoBehaviour:
   pantallaVictoria: {fileID: 1030276313}
   prefabJefe: {fileID: 1379482430}
   prefabEnemigo: {fileID: 1536338393}
+  puntosSpawn:
+  - {fileID: 405162523}
+  - {fileID: 1070842362}
+  - {fileID: 1203903191}
   tiempoEntreSpawn: 3
   maxOleadas: 5
   enemigosPorOleada: 2
@@ -6441,7 +6445,7 @@ Transform:
   m_GameObject: {fileID: 405162518}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 292.94, y: 2.33, z: 218.05}
+  m_LocalPosition: {x: 301.9, y: 2.33, z: 219.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12466,6 +12470,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dirt
       objectReference: {fileID: 0}
+    - target: {fileID: 7263623146951188175, guid: 982d86a08033e3e4c81b96929131a643, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15359,7 +15367,6 @@ GameObject:
   - component: {fileID: 1070842361}
   - component: {fileID: 1070842360}
   - component: {fileID: 1070842359}
-  - component: {fileID: 1070842358}
   m_Layer: 0
   m_Name: ZonaSpawnEnemigos (1)
   m_TagString: Untagged
@@ -15367,28 +15374,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1070842358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1070842357}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c261d98bd4653246b21234d800294c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pantallaVictoria: {fileID: 1030276313}
-  prefabJefe: {fileID: 1379482430}
-  prefabEnemigo: {fileID: 1536338393}
-  tiempoEntreSpawn: 3
-  maxOleadas: 5
-  enemigosPorOleada: 2
-  jefePorOleada: 1
-  oleadaActual: 0
-  enemigosRestantes: {fileID: 2110005773}
-  oleadas: {fileID: 501713608}
 --- !u!64 &1070842359
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15470,7 +15455,7 @@ Transform:
   m_GameObject: {fileID: 1070842357}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 354.9, y: 2.33, z: 175.1}
+  m_LocalPosition: {x: 340.7, y: 2.33, z: 173}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17684,7 +17669,6 @@ GameObject:
   - component: {fileID: 1203903190}
   - component: {fileID: 1203903189}
   - component: {fileID: 1203903188}
-  - component: {fileID: 1203903187}
   m_Layer: 0
   m_Name: ZonaSpawnEnemigos (2)
   m_TagString: Untagged
@@ -17692,28 +17676,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1203903187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1203903186}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c261d98bd4653246b21234d800294c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pantallaVictoria: {fileID: 1030276313}
-  prefabJefe: {fileID: 1379482430}
-  prefabEnemigo: {fileID: 1536338393}
-  tiempoEntreSpawn: 3
-  maxOleadas: 5
-  enemigosPorOleada: 2
-  jefePorOleada: 1
-  oleadaActual: 0
-  enemigosRestantes: {fileID: 2110005773}
-  oleadas: {fileID: 501713608}
 --- !u!64 &1203903188
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17795,7 +17757,7 @@ Transform:
   m_GameObject: {fileID: 1203903186}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 292.94, y: 2.33, z: 112.19}
+  m_LocalPosition: {x: 306.3, y: 2.33, z: 124.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18971,6 +18933,7 @@ MonoBehaviour:
   pantallaVictoria: {fileID: 0}
   prefabJefe: {fileID: 0}
   prefabEnemigo: {fileID: 0}
+  puntosSpawn: []
   tiempoEntreSpawn: 10
   maxOleadas: 5
   enemigosPorOleada: 2
@@ -20115,7 +20078,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 718099387}
-  Range: 50
+  Range: 200
   Damage: 30
   turningSpeed: 5
   attackCooldown: 1
@@ -22136,7 +22099,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 1969902379}
-  Range: 100
+  Range: 150
   Damage: 10
   turningSpeed: 5
   attackCooldown: 1
@@ -24509,6 +24472,10 @@ PrefabInstance:
     - target: {fileID: 7263623146951188175, guid: 982d86a08033e3e4c81b96929131a643, type: 3}
       propertyPath: m_Name
       value: Dirt
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263623146951188175, guid: 982d86a08033e3e4c81b96929131a643, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

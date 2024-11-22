@@ -8,6 +8,7 @@ public class ZonaDeSpawnManager : MonoBehaviour
     public GameObject pantallaVictoria;
     public GameObject prefabJefe;
     public GameObject prefabEnemigo;       // Prefab del enemigo que se va a instanciar
+    public Transform[] puntosSpawn;
     public float tiempoEntreSpawn = 10f;// Tiempo entre oleadas en segundos
     public int maxOleadas = 5;             // Número máximo de oleadas
     public int enemigosPorOleada = 2;      // Número de enemigos por oleada
@@ -63,21 +64,22 @@ public class ZonaDeSpawnManager : MonoBehaviour
     {
         for (int i = 0; i < cantidadEnemigos; i++)
         {
-            // Generar enemigos en la posición del GameObject, con un pequeño desplazamiento aleatorio
-            Vector3 posicionSpawn = transform.position + new Vector3(Random.Range(-15f, 15f), 0, Random.Range(-15f, 15f));
+            Transform puntoSpawn = puntosSpawn[Random.Range(0, puntosSpawn.Length)];
+            Vector3 posicionSpawn = puntoSpawn.position + new Vector3(Random.Range(-15f, 15f), 0, Random.Range(-15f, 15f));
             GameObject nuevoEnemigo = Instantiate(prefabEnemigo, posicionSpawn, Quaternion.identity);
             nuevoEnemigo.SetActive(true);
-            Debug.Log("Una nueva marmota ha aparecido en la zona.");
+            //Debug.Log("Una nueva marmota ha aparecido en la zona.");
         }
     }
     public void SpawnJefeFinal(GameObject prefabJefe, int cantidadJefe)
     {
         for (int i = 0; i < cantidadJefe; i++)
         {
-            Vector3 posicionSpawn = transform.position + new Vector3(Random.Range(-15f, 15f), 0, Random.Range(-15f, 15f));
+            Transform puntoSpawn = puntosSpawn[Random.Range(0, puntosSpawn.Length)];
+            Vector3 posicionSpawn = puntoSpawn.position + new Vector3(Random.Range(-15f, 15f), 0, Random.Range(-15f, 15f));
             GameObject nuevoJefe = Instantiate(prefabJefe, posicionSpawn, Quaternion.identity);
             nuevoJefe.SetActive(true);
-            Debug.Log("Una nueva marmota ha aparecido en la zona.");
+            //Debug.Log("Una nueva marmota ha aparecido en la zona.");
         }
     }
 }
