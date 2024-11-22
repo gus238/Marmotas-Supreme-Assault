@@ -19,7 +19,7 @@ public class Moneda : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             monedas.RecibirMonedas(valorMoneda);  // Suma las monedas al jugador
-            gameObject.SetActive(false);  // Destruye la moneda despu�s de que el jugador la recoge
+            Destroy(gameObject);  // Destruye la moneda despu�s de que el jugador la recoge
         }
     }
 }

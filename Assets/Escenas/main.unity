@@ -3312,7 +3312,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &175961808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3407,7 +3407,7 @@ Transform:
   m_GameObject: {fileID: 175961807}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 281.181, y: 2.794, z: 171.97}
+  m_LocalPosition: {x: 269.13, y: 2.794, z: 153.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6357,6 +6357,7 @@ MonoBehaviour:
   maxOleadas: 5
   enemigosPorOleada: 2
   jefePorOleada: 1
+  oleadaActual: 0
   enemigosRestantes: {fileID: 2110005773}
   oleadas: {fileID: 501713608}
 --- !u!64 &405162520
@@ -14958,13 +14959,14 @@ GameObject:
   - component: {fileID: 1048743415}
   - component: {fileID: 1048743414}
   - component: {fileID: 1048743413}
+  - component: {fileID: 1048743416}
   m_Layer: 0
   m_Name: Cultivo P1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1048743412
 Transform:
   m_ObjectHideFlags: 0
@@ -15051,6 +15053,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048743411}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1048743416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048743411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f74188620667ff478387acbdbfd9b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objetoOleadas: {fileID: 405162518}
+  cantOleadasParaCosechar: 2
 --- !u!1 &1056186497
 GameObject:
   m_ObjectHideFlags: 0
@@ -15370,6 +15386,7 @@ MonoBehaviour:
   maxOleadas: 5
   enemigosPorOleada: 2
   jefePorOleada: 1
+  oleadaActual: 0
   enemigosRestantes: {fileID: 2110005773}
   oleadas: {fileID: 501713608}
 --- !u!64 &1070842359
@@ -17694,6 +17711,7 @@ MonoBehaviour:
   maxOleadas: 5
   enemigosPorOleada: 2
   jefePorOleada: 1
+  oleadaActual: 0
   enemigosRestantes: {fileID: 2110005773}
   oleadas: {fileID: 501713608}
 --- !u!64 &1203903188
@@ -18957,6 +18975,7 @@ MonoBehaviour:
   maxOleadas: 5
   enemigosPorOleada: 2
   jefePorOleada: 1
+  oleadaActual: 0
   enemigosRestantes: {fileID: 0}
   oleadas: {fileID: 0}
 --- !u!64 &1288426501

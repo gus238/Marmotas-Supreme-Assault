@@ -69,7 +69,8 @@ public class scriptMina : MonoBehaviour
     // M�todo para generar una moneda en la posici�n de la mina
     public void GenerarMoneda()
     {
-        GameObject moneda = Instantiate(monedaPrefab, lugarSpawnMonedas.transform.position + Vector3.up, Quaternion.identity);
+        Vector3 posicionmoneda = lugarSpawnMonedas.transform.position + new Vector3(Random.Range(-3f, 3f), 0, Random.Range(-3f, 3f));
+        GameObject moneda = Instantiate(monedaPrefab, posicionmoneda, Quaternion.identity);
         moneda.SetActive(true);
     }
 }

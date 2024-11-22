@@ -12,7 +12,7 @@ public class ZonaDeSpawnManager : MonoBehaviour
     public int maxOleadas = 5;             // Número máximo de oleadas
     public int enemigosPorOleada = 2;      // Número de enemigos por oleada
     public int jefePorOleada = 1;
-    private int oleadaActual = 0;          // Contador de la oleada actual
+    public int oleadaActual = 0;          // Contador de la oleada actual
     public TextMeshProUGUI enemigosRestantes;
     public TextMeshProUGUI oleadas;
 
