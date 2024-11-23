@@ -10145,13 +10145,14 @@ GameObject:
   - component: {fileID: 736699804}
   - component: {fileID: 736699803}
   - component: {fileID: 736699807}
+  - component: {fileID: 736699808}
   m_Layer: 0
   m_Name: Mina Cobre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &736699803
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10232,7 +10233,7 @@ Transform:
   m_GameObject: {fileID: 736699802}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 270.7, y: 1.91, z: 169.2}
+  m_LocalPosition: {x: 271.64, y: 1.91, z: 169.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10253,6 +10254,102 @@ MonoBehaviour:
   tiempoPorPlata: 2
   cantDineroPorTick: 5
   player: {fileID: 718099384}
+--- !u!82 &736699808
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736699802}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c64fd615dd5196047850286f09ee9e49, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.3
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 0
+  MinDistance: 1
+  MaxDistance: 40
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &741288630
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11995,7 +12092,6 @@ GameObject:
   - component: {fileID: 859068575}
   - component: {fileID: 859068574}
   - component: {fileID: 859068577}
-  - component: {fileID: 859068576}
   m_Layer: 0
   m_Name: Portal Bosque
   m_TagString: Untagged
@@ -12126,14 +12222,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10.000005, y: 0.000002384186, z: 10.000002}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!81 &859068576
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 859068569}
-  m_Enabled: 1
 --- !u!82 &859068577
 AudioSource:
   m_ObjectHideFlags: 0
@@ -21035,7 +21123,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1458250019}
   - component: {fileID: 1458250022}
-  - component: {fileID: 1458250021}
   - component: {fileID: 1458250023}
   m_Layer: 0
   m_Name: PlayerCamera
@@ -21060,14 +21147,6 @@ Transform:
   - {fileID: 1881540423}
   m_Father: {fileID: 1443421821}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &1458250021
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1458250018}
-  m_Enabled: 1
 --- !u!20 &1458250022
 Camera:
   m_ObjectHideFlags: 0
@@ -22529,7 +22608,6 @@ GameObject:
   - component: {fileID: 1582238185}
   - component: {fileID: 1582238184}
   - component: {fileID: 1582238187}
-  - component: {fileID: 1582238186}
   m_Layer: 0
   m_Name: Portal 2
   m_TagString: Untagged
@@ -22660,14 +22738,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10, y: 2.2204466e-16, z: 10.000002}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!81 &1582238186
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1582238179}
-  m_Enabled: 1
 --- !u!82 &1582238187
 AudioSource:
   m_ObjectHideFlags: 0
@@ -27790,6 +27860,7 @@ GameObject:
   - component: {fileID: 1969902381}
   - component: {fileID: 1969902380}
   - component: {fileID: 1969902383}
+  - component: {fileID: 1969902384}
   m_Layer: 0
   m_Name: PlayerObj
   m_TagString: Player
@@ -27907,6 +27978,14 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!81 &1969902384
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969902378}
+  m_Enabled: 1
 --- !u!4 &1981060615 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8547562741469487195, guid: 1cc366ffed1f2924690139d67a88b254, type: 3}
