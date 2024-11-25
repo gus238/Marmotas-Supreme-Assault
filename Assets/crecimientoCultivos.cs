@@ -1,36 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
+using TMPro.Examples;
 public class crecimientoCultivos : MonoBehaviour
 {
-    private int contadorOleada;
-    public GameObject objetoOleadas;
-    ZonaDeSpawnManager oleadas;
+    private float tiempoControlCrecer = 0f;
+    public float tiempoCrecer;
+    public GameObject cultivoCrecido;
     private int contadorCultivo;
-    public int cantOleadasParaCosechar;
+    public TextMeshProUGUI tiempoHUD;
+    public GameObject objetoTexto;
+    public GameObject imgCrecido;
 
     void Start()
     {
+        imgCrecido.SetActive(false);
+        objetoTexto.SetActive(false);
+        cultivoCrecido.SetActive(false);
         contadorCultivo = 0;
-        oleadas = objetoOleadas.GetComponent<ZonaDeSpawnManager>();
-        contadorOleada = oleadas.oleadaActual;
     }
 
     void Update()
     {
-        if (contadorOleada != oleadas.oleadaActual)
+        
+        tiempoControlCrecer += Time.deltaTime;
+        if (tiempoControlCrecer >= tiempoCrecer)
         {
-            contadorOleada = oleadas.oleadaActual;
-            contadorCultivo++;
+            tiempoControlCrecer = 0f;
             CrecimientoCultivo();
         }
+        if (!cultivoCrecido.activeSelf)
+        {
+            objetoTexto.SetActive(true);
+            tiempoHUD.text = tiempoControlCrecer.ToString("F1") + "s";
+        }
+        /*if (cultivoCrecido.SetActive(true))
+        {
+            objetoTexto.SetActive(false);
+            gameObject.SetActive(false);
+        }*/
     }
     private void CrecimientoCultivo()
     {
-        if (contadorCultivo == cantOleadasParaCosechar)
-        {
-            Debug.Log("Listo para Cosechar");
-        }
+        Debug.Log("CRECIO EL CULTIVO");
+        cultivoCrecido.SetActive(true);
+        objetoTexto.SetActive(false);
+        imgCrecido.SetActive(true);
+        gameObject.SetActive(false);
     }
 }
