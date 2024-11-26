@@ -3,49 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using TMPro.Examples;
+using UnityEngine.UI;
 public class crecimientoCultivos : MonoBehaviour
 {
     private float tiempoControlCrecer = 0f;
     public float tiempoCrecer;
     public GameObject cultivoCrecido;
     private int contadorCultivo;
-    public TextMeshProUGUI tiempoHUD;
-    public GameObject objetoTexto;
     public GameObject imgCrecido;
+    public Image imagenContador;
+    public GameObject imagencontador;
 
     void Start()
     {
         imgCrecido.SetActive(false);
-        objetoTexto.SetActive(false);
         cultivoCrecido.SetActive(false);
         contadorCultivo = 0;
+        imagenContador.fillAmount = 1f;
     }
 
     void Update()
     {
-        
+        imagencontador.SetActive(true);
         tiempoControlCrecer += Time.deltaTime;
+        imagenContador.fillAmount = 1 - (tiempoControlCrecer / tiempoCrecer);
         if (tiempoControlCrecer >= tiempoCrecer)
         {
-            tiempoControlCrecer = 0f;
             CrecimientoCultivo();
         }
-        if (!cultivoCrecido.activeSelf)
-        {
-            objetoTexto.SetActive(true);
-            tiempoHUD.text = tiempoControlCrecer.ToString("F1") + "s";
-        }
-        /*if (cultivoCrecido.SetActive(true))
-        {
-            objetoTexto.SetActive(false);
-            gameObject.SetActive(false);
-        }*/
+
     }
     private void CrecimientoCultivo()
     {
+        tiempoControlCrecer = 0f;
         Debug.Log("CRECIO EL CULTIVO");
         cultivoCrecido.SetActive(true);
-        objetoTexto.SetActive(false);
+        imagencontador.SetActive(false);
         imgCrecido.SetActive(true);
         gameObject.SetActive(false);
     }
