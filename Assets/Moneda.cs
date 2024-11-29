@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Moneda : MonoBehaviour
 {
-    public int valorMoneda = 1;  // Cu�ntas monedas da esta moneda
-    public GameObject jugador;  // El objeto del jugador, que puedes arrastrar desde el Inspector
+    public int valorMoneda;
+    public GameObject jugador;
     public AudioSource sourceSonido;
     public AudioClip ruiditoMoneda;
     economiaJugador monedas;
@@ -17,12 +17,13 @@ public class Moneda : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Verifica si el objeto que colisiona es el jugador asignado
+
         if (other.CompareTag("Player"))
         {
-            monedas.RecibirMonedas(valorMoneda);  // Suma las monedas al jugador
+            monedas.RecibirMonedas(valorMoneda);  
             sourceSonido.PlayOneShot(ruiditoMoneda);
-            Destroy(gameObject);  // Destruye la moneda despu�s de que el jugador la recoge
+            GetComponent<Collider>().enabled = false;
+            Destroy(gameObject);
         }
     }
 }
