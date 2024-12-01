@@ -10608,7 +10608,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &803659674
 Transform:
   m_ObjectHideFlags: 0
@@ -10709,6 +10709,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   valorCultivo: 5
   player: {fileID: 718099384}
+  parcela: {fileID: 0}
+  imagenCrecido: {fileID: 1540116047}
 --- !u!1001 &818573972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22377,9 +22379,9 @@ MonoBehaviour:
   cultivosListosParaCosechar:
   - {fileID: 803659673}
   canvaCosecha: {fileID: 511040024}
-  tiempoDePresionE: 3
   barraCosecha: {fileID: 1575919354}
   sliderCosecha: {fileID: 1575919355}
+  tiempoBasePresionE: 3
 --- !u!1 &1685999922
 GameObject:
   m_ObjectHideFlags: 0

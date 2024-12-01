@@ -31,7 +31,6 @@ public class crecimientoCultivos : MonoBehaviour
         {
             CrecimientoCultivo();
         }
-
     }
     private void CrecimientoCultivo()
     {

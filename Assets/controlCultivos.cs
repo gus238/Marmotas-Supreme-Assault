@@ -25,16 +25,11 @@ public class controlCultivos : MonoBehaviour
     public void ActivarCultivo()
     {
 
-        if (dineroActual >= costeCompra)
+        if (dineroActual >= costeCompra && (cultivo.activeSelf == false))
         {
             dinero.RecibirMonedas(-costeCompra);
             cultivo.SetActive(true);
             Debug.Log("el cultivo fue plantado");
         }
-    }
-
-    private void CrecimientoDeCultivo()
-    {
-
     }
 }
