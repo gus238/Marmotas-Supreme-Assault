@@ -11887,6 +11887,7 @@ MonoBehaviour:
   canvaCosecha: {fileID: 1875207403}
   barraCosecha: {fileID: 34965290}
   sliderCosecha: {fileID: 34965291}
+  player: {fileID: 718099384}
   tiempoBasePresionE: 3
 --- !u!4 &765916510 stripped
 Transform:
@@ -26448,6 +26449,7 @@ MonoBehaviour:
   canvaCosecha: {fileID: 511040024}
   barraCosecha: {fileID: 1575919354}
   sliderCosecha: {fileID: 1575919355}
+  player: {fileID: 718099384}
   tiempoBasePresionE: 3
 --- !u!1 &1685999922
 GameObject:
