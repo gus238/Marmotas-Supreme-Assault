@@ -1,100 +1,3 @@
-/*using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-
-public class CosecharCultivo : MonoBehaviour
-{
-    public GameObject[] cultivosListosParaCosechar;
-    public GameObject canvaCosecha;
-    public GameObject barraCosecha;
-    public Slider sliderCosecha;
-    public float tiempoDePresionE = 3.0f;
-    public bool ningunCultivoCrecido;
-    private float tiempoCosecha;
-    private bool triggerStayBool;
-    private bool presionBoton;
-    int contadorCultivoCrecido;
-
-    void Start()
-    {
-        barraCosecha.SetActive(false);
-        triggerStayBool = false;
-        presionBoton = false;
-        canvaCosecha.SetActive(false);
-        sliderCosecha.value = 1f;
-        ningunCultivoCrecido = true;
-        contadorCultivoCrecido = 0;
-    }
-
-    void Update()
-    {
-        if (triggerStayBool && Input.GetKey(KeyCode.E) && !ningunCultivoCrecido)
-        {
-            barraCosecha.SetActive(true);
-            tiempoCosecha += Time.deltaTime;
-            sliderCosecha.value = 1f - (tiempoCosecha / tiempoDePresionE);
-
-            if (ningunCultivoCrecido)
-            {
-                barraCosecha.SetActive(false);
-            }
-            if (tiempoCosecha >= tiempoDePresionE)
-            {
-                contadorCultivoCrecido = 0;
-
-                CosecharCultivos();
-                ResetearTiempoCosecha();
-            }
-        }
-        else
-        {
-            barraCosecha.SetActive(false);
-            ResetearTiempoCosecha();
-        }
-       
-    }
-
-    private void CosecharCultivos()
-    {
-        foreach (var cultivo in cultivosListosParaCosechar)
-        {
-            if (cultivo.activeSelf)
-            {
-                var cultivoScript = cultivo.GetComponent<RecogerCultivo>();
-                cultivoScript.DarDinero();
-                cultivo.SetActive(false);
-            }
-        }
-    }
-
-    void OnTriggerStay(Collider objeto)
-    {
-        if (objeto.CompareTag("Player"))
-        {
-            canvaCosecha.SetActive(true);
-            triggerStayBool = true;
-        }
-    }
-
-    void OnTriggerExit(Collider objeto)
-    {
-        if (objeto.CompareTag("Player"))
-        {
-            barraCosecha.SetActive(false);
-            canvaCosecha.SetActive(false);
-            triggerStayBool = false;
-        }
-    }
-
-    public void ResetearTiempoCosecha()
-    {
-        tiempoCosecha = 0f;
-        presionBoton = false;
-        sliderCosecha.value = 1f;
-    }
-}*/
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -106,6 +9,7 @@ public class CosecharCultivo : MonoBehaviour
     public GameObject canvaCosecha;
     public GameObject barraCosecha;
     public Slider sliderCosecha;
+    public GameObject player;
 
     public float tiempoBasePresionE = 3.0f; 
     private float tiempoCosecha;
@@ -125,10 +29,12 @@ public class CosecharCultivo : MonoBehaviour
 
         if (triggerStayBool && cultivosActivos > 0 && Input.GetKey(KeyCode.E))
         {
+            var script = player.GetComponent<MovimientoJugador>();
             barraCosecha.SetActive(true);
             float tiempoRequerido = tiempoBasePresionE * cultivosActivos;
             tiempoCosecha += Time.deltaTime;
             sliderCosecha.value = 1f - (tiempoCosecha / tiempoRequerido);
+            script.enabled = false;
 
             if (tiempoCosecha >= tiempoRequerido)
             {
@@ -138,6 +44,8 @@ public class CosecharCultivo : MonoBehaviour
         }
         else
         {
+            var script = player.GetComponent<MovimientoJugador>();
+            script.enabled = true;
             barraCosecha.SetActive(false);
             ResetearTiempoCosecha();
         }
@@ -193,3 +101,29 @@ public class CosecharCultivo : MonoBehaviour
         sliderCosecha.value = 1f;
     }
 }
+
+/*
+public class DeshabilitarOtroScript : MonoBehaviour
+{
+    public GameObject otroGameObject; // Referencia al GameObject que tiene el script
+    public string nombreScript;       // Nombre del script que quieres deshabilitar
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            // Obtener el script del otro GameObject
+            var script = otroGameObject.GetComponent(nombreScript) as MonoBehaviour;
+
+            if (script != null)
+            {
+                script.enabled = false; // Desactivar el script
+                Debug.Log($"El script {nombreScript} en {otroGameObject.name} ha sido desactivado.");
+            }
+            else
+            {
+                Debug.LogWarning($"No se encontró el script {nombreScript} en {otroGameObject.name}.");
+            }
+        }
+    }
+}*/

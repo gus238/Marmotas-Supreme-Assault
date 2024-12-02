@@ -47,7 +47,7 @@ public class ZonaDeSpawnManager : MonoBehaviour
         }
     }
 
-    private void Update()
+    void Update()
     {
         if ((GameObject.FindGameObjectsWithTag("Enemy").Length <= 0) && oleadaActual == maxOleadas)
         {
@@ -58,6 +58,7 @@ public class ZonaDeSpawnManager : MonoBehaviour
         }
         enemigosRestantes.SetText("Enemigos restantes: " + GameObject.FindGameObjectsWithTag("Enemy").Length);
         oleadas.SetText("Oleada: " + oleadaActual);
+
     }
     // Método para generar una oleada de enemigos
     public void SpawnOleadaEnemigos(GameObject prefabEnemigo, int cantidadEnemigos)
