@@ -101,29 +101,3 @@ public class CosecharCultivo : MonoBehaviour
         sliderCosecha.value = 1f;
     }
 }
-
-/*
-public class DeshabilitarOtroScript : MonoBehaviour
-{
-    public GameObject otroGameObject; // Referencia al GameObject que tiene el script
-    public string nombreScript;       // Nombre del script que quieres deshabilitar
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            // Obtener el script del otro GameObject
-            var script = otroGameObject.GetComponent(nombreScript) as MonoBehaviour;
-
-            if (script != null)
-            {
-                script.enabled = false; // Desactivar el script
-                Debug.Log($"El script {nombreScript} en {otroGameObject.name} ha sido desactivado.");
-            }
-            else
-            {
-                Debug.LogWarning($"No se encontró el script {nombreScript} en {otroGameObject.name}.");
-            }
-        }
-    }
-}*/

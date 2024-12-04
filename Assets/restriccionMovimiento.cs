@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class restriccionMovimiento : MonoBehaviour
 {
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +16,4 @@ public class restriccionMovimiento : MonoBehaviour
     {
         
     }
-}
+    
