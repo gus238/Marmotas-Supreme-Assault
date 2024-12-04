@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    public List<SlotsInv> inventorySlots;
+    public List<SlotsInv> inventorySlots = new List<SlotsInv>();
     public Transform inventoryPanel;
     public ItemDatabase itemDatabase; // Reference to the item database
     private bool isInventoryOpen = false;
@@ -11,7 +11,7 @@ public class InventoryManager : MonoBehaviour
     private void Start()
     {
         InitializeInventory();
-        inventoryPanel.gameObject.SetActive(isInventoryOpen); // Initialize the inventory as closed
+        inventoryPanel.gameObject.SetActive(isInventoryOpen); // Start inventory closed
         LoadItemsFromDatabase(); // Load items from the database into the inventory
     }
 
@@ -27,11 +27,15 @@ public class InventoryManager : MonoBehaviour
     {
         isInventoryOpen = !isInventoryOpen;
         inventoryPanel.gameObject.SetActive(isInventoryOpen);
+
+        // Manage cursor visibility and locking
+        Cursor.lockState = isInventoryOpen ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.visible = isInventoryOpen;
     }
 
     private void InitializeInventory()
     {
-        // Instead of instantiating, we find the slots that already exist in the panel
+        // Automatically add all child slots from the GridLayout
         foreach (Transform slotTransform in inventoryPanel)
         {
             SlotsInv slotComponent = slotTransform.GetComponent<SlotsInv>();
@@ -50,10 +54,25 @@ public class InventoryManager : MonoBehaviour
             return;
         }
 
-        // Load items from the item database into the inventory slots
+        // Load items into the slots from the database
         for (int i = 0; i < itemDatabase.items.Count && i < inventorySlots.Count; i++)
         {
-            inventorySlots[i].AddItem(itemDatabase.items[i]); // Cambiado a InventoryItem
+            inventorySlots[i].AddItem(itemDatabase.items[i]);
         }
+    }
+
+    public void AddItemToInventory(InventoryItem newItem)
+    {
+        // Add an item to the first empty slot
+        foreach (var slot in inventorySlots)
+        {
+            if (slot.item == null)
+            {
+                slot.AddItem(newItem);
+                return;
+            }
+        }
+
+        Debug.LogWarning("No empty slots available in inventory!");
     }
 }

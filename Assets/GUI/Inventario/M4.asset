@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: M4
   icon: {fileID: 0}
   isStackable: 0
-  "da\xF1o": 4
+  dato: 0
   fireRate: 0.5
   rango: 100
   tiempoRecarga: 1
