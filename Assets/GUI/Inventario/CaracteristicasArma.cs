@@ -1,28 +1,27 @@
-// File name: CaracteristicasArma.cs
-
-using TMPro;
 using UnityEngine;
+using TMPro;
 
 public class CaracteristicasArma : MonoBehaviour
 {
     [Header("Arma Actual")]
-    public InventoryItem armaActual;
+    public InventoryItem armaActual;  // Asegúrate de que esto sea público
     private GameObject armaInstanciada;
 
     [Header("Referencias")]
-    public Camera fpsCam;
-    public AudioSource audioSource;
-    public TextMeshProUGUI text;
+    public Camera fpsCam;            // Asegúrate de que esto sea público
+    public AudioSource audioSource;  // Asegúrate de que esto sea público
+    public TextMeshProUGUI text;     // Asegúrate de que esto sea público
     public Transform puntoSalida;
     public Transform posicionArmaJugador;
 
-    private bool listoParaDisparar = true;
-    private bool recargando = false;
+    public bool listoParaDisparar = true;  // Asegúrate de que esto sea público
+    public bool recargando = false;        // Asegúrate de que esto sea público
 
     void Start()
     {
         if (armaActual != null)
         {
+            // Inicializa las propiedades del arma, como las balas y los sonidos
             armaActual.balasRestantes = armaActual.tamañoCargador;
             text.SetText(armaActual.balasRestantes + " / " + armaActual.tamañoCargador);
             InstanciarModeloArma();
@@ -31,14 +30,23 @@ public class CaracteristicasArma : MonoBehaviour
 
     void Update()
     {
-        MiInput();
+        ProcesarEntrada();
         if (armaActual != null)
         {
             text.SetText(armaActual.balasRestantes + " / " + armaActual.tamañoCargador);
         }
     }
 
-    private void MiInput()
+    private void InstanciarModeloArma()
+    {
+        if (armaActual.modeloArma != null && posicionArmaJugador != null)
+        {
+            armaInstanciada = Instantiate(armaActual.modeloArma, posicionArmaJugador.position, posicionArmaJugador.rotation, posicionArmaJugador);
+        }
+    }
+
+    // Cambié el nombre de MiInput a ProcesarEntrada
+    private void ProcesarEntrada()
     {
         if (armaActual != null)
         {
@@ -77,13 +85,5 @@ public class CaracteristicasArma : MonoBehaviour
     private void RecargaTerminada()
     {
         recargando = false;
-    }
-
-    private void InstanciarModeloArma()
-    {
-        if (armaActual.modeloArma != null && posicionArmaJugador != null)
-        {
-            armaInstanciada = Instantiate(armaActual.modeloArma, posicionArmaJugador.position, posicionArmaJugador.rotation, posicionArmaJugador);
-        }
     }
 }
