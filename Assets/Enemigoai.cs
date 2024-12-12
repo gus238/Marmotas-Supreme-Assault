@@ -4,49 +4,48 @@ using UnityEngine.AI;
 
 public class EnemyAIMovement : MonoBehaviour
 {
-    // Reference of target to follow to activate the enemy
+    //A que transform seguir (player)
     [SerializeField] Transform Target;
 
-    // Caching of NavMeshAgent for easier use
+    //Toma el navmeshagent
     NavMeshAgent navMeshAgent;
-    // Caching player health component (replace with appropriate health script if not found)
+    //Toma la vida del jugador
     BarraDeVida targetHealth;
-    // Caching enemy health component (replace with appropriate health script if not found)
+    //Toma la vida de la marmota (enemigo)
     VidaEnemigo enemyHealth;
 
-    // The range between target and enemy to activate the enemy
+    //Rango de deteccion de la marmota
     [SerializeField] float Range = 10f;
     float distanceToTarget = Mathf.Infinity;
 
-    // Health and Speed characteristics of enemy
+    //Estadisticas de daño y velocidad
     [SerializeField] public float Damage = 10f;
     [SerializeField] float turningSpeed = 5f;
     [SerializeField] public float attackCooldown = 1.5f;
     float lastAttackTime = -Mathf.Infinity;
 
-    // Bool to know whether the enemy is activated or not
+    //bool para saber si ataca al ser provocado el enemigo
     public bool isProvoked = false;
 
-    // Bool to know whether the enemy is alive or not
+    //bool para verificar si el enemigo esta vivo
     bool dead;
 
-    // Animator reference for animations
+    //Animator por si tiene animacion
     Animator animator;
 
+    //Toma los valores del enemigo y jugador
     void Start()
     {
-        // Caching navMeshAgent, Animator, PlayerHealth, and EnemyHealth
+
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        // Ensure to have a script named 'BarraDeVida' or replace with the correct health script
         targetHealth = Target.GetComponent<BarraDeVida>();
-        // Ensure to have a script named 'VidaEnemigo' or replace with the correct health script
         enemyHealth = GetComponent<VidaEnemigo>();
     }
 
     void Update()
     {
-        // Checking whether the enemy is still alive
+        //Verifica si el enemigo esta vivo o no
         dead = enemyHealth.IsDead();
         if (dead)
         {
@@ -54,7 +53,7 @@ public class EnemyAIMovement : MonoBehaviour
             return;
         }
 
-        // Only calculate distance if the enemy is not provoked
+        //Calcula la distancia si el enemigo no necesita ser provocado
         if (!isProvoked)
         {
             distanceToTarget = Vector3.Distance(Target.position, transform.position);
@@ -66,21 +65,21 @@ public class EnemyAIMovement : MonoBehaviour
         }
         else if (distanceToTarget <= Range)
         {
-            // If the target entered the range then activate
+            //Si el player entra en el rango se empieza a mover hacia el jugador
             isProvoked = true;
         }
     }
 
-    // Movement Function
+    //Empieza a moverse en direccion al jugador al ser provocado el enemigo
     private void EngageTarget()
     {
-        // Look at direction of target function
+        //Mira a la direccion del jugador
         LookTarget();
 
-        // Compare distance to target and stopping distance that assigned in navmesh agent in target.
+        //Compara la distancia con el jugador y donde se tiene que detener
         if (distanceToTarget >= navMeshAgent.stoppingDistance)
         {
-            // If enemy hasn't reached the stopping condition, move towards target
+            //Si el enemigo no alcanzo la distancia para detenerse, seguir moviendose hacia el jugador
             if (navMeshAgent.isOnNavMesh && navMeshAgent.pathStatus == NavMeshPathStatus.PathComplete)
             {
                 navMeshAgent.SetDestination(Target.position);
@@ -89,48 +88,47 @@ public class EnemyAIMovement : MonoBehaviour
         }
         else
         {
-            // If the enemy is within stopping distance, attack target
+            //Si el enemigo esta a rango de ataque del jugador, atacarlo
             AttackTarget();
         }
     }
 
-    // Look in direction of target
+    //Mira en direccion al jugador
     private void LookTarget()
     {
-        // Calculate new direction vector from target's position to enemy's position
+        //Calcula la posicion entre el jugador y el enemigo
         Vector3 direction = (Target.position - transform.position).normalized;
 
-        // Make new quaternion with the new direction vector we calculated to assign that to the enemy's rotation
+        //Calcula la nueva rotacion que debe tener para ver al jugador
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
 
-        // Assign the created quaternion to the enemy
+        //Asigna la rotacion al enemigo
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * turningSpeed);
     }
 
-    // Attack Function
+    //Ataca al jugador mientras siga en el rango de ataque
     private void AttackTarget()
     {
         animator.SetBool("isMoving", false);
         if (Time.time > lastAttackTime + attackCooldown)
         {
-            // Attack animation trigger
+            //Animacion de ataque si hubiera
             animator.SetTrigger("attack");
-            // Logic to damage target
+            //Reduce la vida del player por el daño asignado a la marmota
             targetHealth.ReducirVida(Damage);
             lastAttackTime = Time.time;
         }
     }
 
-    // Function to handle enemy death
+    //Llama a una animacion de morir si la hubiera y detiene todas las acciones del gameobject
     private void Die()
     {
         navMeshAgent.enabled = false;
         animator.SetTrigger("die");
-        // Disable further actions when dead
         this.enabled = false;
     }
 
-    // Gizmos to give a visual representation of range for debugging process
+    //Visualizacion del rango en el editor
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

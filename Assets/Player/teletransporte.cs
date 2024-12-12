@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class teletransporte : MonoBehaviour
 {
+    //Asigna el sonido que se reproduce al pasar por el portal
+    //Asigna el lugar donde caemos al entrar en contacto con el gameobject
     public Transform warp;
     public AudioSource sonido;
 
+    //Cuando el player entra en colision con el portal teletransporta al objeto que entro en colision al warp asignado en el editor
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -15,16 +18,5 @@ public class teletransporte : MonoBehaviour
             objeto.transform.position = warp.position;
             sonido.Play();
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

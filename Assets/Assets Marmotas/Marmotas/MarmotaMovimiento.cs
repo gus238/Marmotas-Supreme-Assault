@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 public class MarmotaMovimiento : MonoBehaviour
 {
-    public Transform objetivo; // Arrastra el jugador aquí en el inspector
+    public Transform objetivo; // Arrastra el jugador aquï¿½ en el inspector
     private Animator anim;
     private NavMeshAgent agente;
 

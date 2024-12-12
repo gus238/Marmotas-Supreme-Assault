@@ -4,18 +4,23 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 public class VidaEnemigo : MonoBehaviour
 {
+    //
     public GameObject vidamarmota;
     int vidaactual;
     public int vidamax = 10;
+    //
     int valorMonedas;
     public int valorMinMonedas;
     public int valorMaxMonedas;
+    //Se asigna al jugador para que este reciba dinero al morir la marmota
     public GameObject player;
+    //Se asigna los sliders de vida de la marmota y cada cuanto tiempo esta se desactiva al no recibir daño
     public Slider barraDeVida;
     public Slider barraDeVidaAmarilla;
     private float velBarraAmarilla = 0.05f;
     public float tiempovida = 0.0f;
 
+    //
     void Start()
     {
         vidamarmota.SetActive(false);
@@ -26,7 +31,7 @@ public class VidaEnemigo : MonoBehaviour
         barraDeVidaAmarilla.maxValue = vidamax;
     }
 
-    // Method to take damage
+    //Al recibir un disparo del arma esta si entra en colision con un objeto con el tag enemigo llama esta funcion
     public void TakeDamage(int damage)
     {
         ReducirVida(damage);
@@ -36,6 +41,7 @@ public class VidaEnemigo : MonoBehaviour
         }
     }
 
+    //Activa el slider que muestra la vida actual de la marmota y reduce el daño que recibio
     public void ReducirVida(int cantidad)
     {
         vidamarmota.SetActive(true);
@@ -43,18 +49,15 @@ public class VidaEnemigo : MonoBehaviour
         vidaactual = Mathf.Clamp(vidaactual, 0, vidamax);
         barraDeVida.value = vidaactual;
         tiempovida = 0f;
-        
-
-
     }
 
-    // Method to check if enemy is dead
+    //
     public bool IsDead()
     {
-
         return vidaactual <= 0;
     }
 
+    //Verifica que haya pasado menos de cierta cantidad de tiempo al recibir daño para seguir mostrando la barra de vida
     void Update()
     {
         tiempovida += Time.deltaTime;
@@ -71,8 +74,7 @@ public class VidaEnemigo : MonoBehaviour
       
     }
 
-    // Method to handle enemy death
-   
+    //Que pasa si el enemigo muere (vidaactual <= 0), el jugador recibe un valor de dinero entre un valor minimo y maximo y se destruye la marmota
     private void Die()
     {
         valorMonedas = UnityEngine.Random.Range(valorMinMonedas, valorMaxMonedas + 1);
