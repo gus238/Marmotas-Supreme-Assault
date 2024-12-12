@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class AdministracionInventario : MonoBehaviour
 {
+    //Toma el canva de inventario y el estado del canva de cultivos
     public GameObject MenuInventario;
     public bool ActivacionInventario;
     public bool InterfazCultivos;
     public AdministracionCultivos adminCultivos;
 
+    //Encuentra el componente AdministracionCultivos en el CanvasCultivos
     void Start()
     {
-        // Encuentra el componente AdministracionCultivos en el CanvasCultivos
+        
         GameObject canvasCultivos = GameObject.Find("CanvasCultivos");
         if (canvasCultivos != null)
         {
@@ -19,6 +21,8 @@ public class AdministracionInventario : MonoBehaviour
         }
     }
 
+    //Si se aprieta tab y el canva de inventario y cultivos estan desactivados pausa el tiempo y abre el inventario, activa el cursor
+    //Sino si el inventario esta activado al apretar tab, desactiva el inventario, reanuda el tiempo y desactiva el cursor
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab) && !ActivacionInventario && !InterfazCultivos)
@@ -39,13 +43,14 @@ public class AdministracionInventario : MonoBehaviour
         }
     }
 
+    //Al apretar cultivos en el inventario desactiva el inventario y encuentra el canva de cultivos y lo activa
     public void ActivarCultivos()
     {
-        // Desactiva el menú de inventario
+        //Desactiva el menú de inventario
         MenuInventario.SetActive(false);
         ActivacionInventario = false;
 
-        // Encuentra el CanvasCultivos y activa el menú
+        //Encuentra el CanvasCultivos y activa el menú
         GameObject padre = GameObject.Find("CanvasCultivos");
         if (padre != null)
         {
@@ -53,9 +58,9 @@ public class AdministracionInventario : MonoBehaviour
             if (hijoTransform != null)
             {
                 GameObject hijo = hijoTransform.gameObject;
-                hijo.SetActive(true); // Activa el menú de cultivos
+                hijo.SetActive(true); //Activa el menú de cultivos
 
-                // Actualiza el estado en ambos scripts
+                //Actualiza el estado de los booleanos en ambos scripts
                 InterfazCultivos = true;
                 if (adminCultivos != null)
                 {
