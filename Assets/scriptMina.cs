@@ -24,20 +24,21 @@ public class scriptMina : MonoBehaviour
         construido = false;
         hudMina.SetActive(false);
         mina.SetActive(false);
-        monedas = player.GetComponent<economiaJugador>();
-        costeTexto.SetText("Coste: " + coste);
-        tiempoGeneracion = 0f; // Inicializa el temporizador en 0
+        monedas = player.GetComponent<economiaJugador>(); //extraigo del script economiaJugador todos los valores y componentes
+        costeTexto.SetText("Coste: " + coste); //muestro por pantalla el coste
+        tiempoGeneracion = 0f;  
+        //desactivo todo y pongo tiempoGeneración en 0
     }
 
     void Update()
     {
-        dinero = monedas.cantidadMonedas;
+        dinero = monedas.cantidadMonedas; //guardo la función dentro de una variable
         
 
-        // Genera monedas en intervalos despu�s de construir la mina
+        // Genera monedas en intervalos despues de construir la mina, dirigiendose a la funcion GenerarMoneda
         if (construido)
         {
-            tiempoGeneracion += Time.deltaTime;
+            tiempoGeneracion += Time.deltaTime; //Guardo en tiempoGeneracion el tiempo en segundos
             if (tiempoGeneracion >= intervaloGeneracionMonedas)
             {
                 GenerarMoneda();
@@ -50,7 +51,7 @@ public class scriptMina : MonoBehaviour
     {
         if (objeto.CompareTag("Player"))
         {
-            hudMina.SetActive(true);
+            hudMina.SetActive(true);  
 
             if (Input.GetKey(KeyCode.E) && dinero >= coste && !construido)
             {
@@ -59,18 +60,21 @@ public class scriptMina : MonoBehaviour
                 monedas.RecibirMonedas(-coste);
             }
         }
-    }
+        //si el tag que esta dentro del trigger del objeto es Player, Activo el Hud, y si dentro de este, se presiona e,
+        // el dinero es suficiente (osea >=), y la mina no se construyo, contruyo la mina, resto la plata y cambio el booleano a true
+    } 
 
     private void OnTriggerExit(Collider objeto)
     {
-        hudMina.SetActive(false);
+        hudMina.SetActive(false); //desactivo el HudMina al salir del trigger
     }
 
-    // M�todo para generar una moneda en la posici�n de la mina
+
     public void GenerarMoneda()
     {
         Vector3 posicionmoneda = lugarSpawnMonedas.transform.position + new Vector3(Random.Range(-3f, 3f), 0, Random.Range(-3f, 3f));
         GameObject moneda = Instantiate(monedaPrefab, posicionmoneda, Quaternion.identity);
-        moneda.SetActive(true);
+        moneda.SetActive(true); 
+        //genero una moneda en una posición random dentro de los parametros marcados
     }
 }
