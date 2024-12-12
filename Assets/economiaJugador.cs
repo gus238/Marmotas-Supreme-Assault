@@ -6,8 +6,8 @@ using TMPro;
 public class economiaJugador : MonoBehaviour
 {
     public int cantidadMonedas;
-    public TextMeshProUGUI cantMonedas; // Asigna aquí el texto de UI que muestra las monedas
-    public float tiempoJuego = 0f; // Controla el tiempo para generar monedas automáticamente
+    public TextMeshProUGUI cantMonedas; // Asigna el texto de UI que muestra las monedas
+    public float tiempoJuego = 0f; // Controla el tiempo para generar monedas automaticamente
 
     void Start()
     {
@@ -17,10 +17,10 @@ public class economiaJugador : MonoBehaviour
 
     void Update()
     {
-        // Generación automática de monedas si la mina está activa
+        // Genera automaticamente monedas si la mina esta activa
         if (cantidadMonedas > 0)
         {
-            tiempoJuego += Time.deltaTime;
+            tiempoJuego += Time.deltaTime; //guardo el tiempo en segundos en tiempoJuego
             if (tiempoJuego >= 1f)  // Genera una moneda cada segundo si se activa la mina
             {
                 cantidadMonedas += 1;
@@ -35,6 +35,7 @@ public class economiaJugador : MonoBehaviour
         cantidadMonedas += cantidadRecibida;
         Debug.Log("Monedas actuales: " + cantidadMonedas);
         ActualizarUI();
+        //aumenta la cantidad de monedas del jugador, la variable y la muestra por pantalla en el Hud
     }
 
     private void ActualizarUI()
@@ -46,7 +47,7 @@ public class economiaJugador : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("El campo 'cantMonedas' no está asignado en el Inspector.");
+            Debug.LogWarning("El campo 'cantMonedas' no esta asignado en el Inspector.");
         }
     }
 }
