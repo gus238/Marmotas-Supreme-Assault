@@ -10,6 +10,7 @@ public class menuOpciones : MonoBehaviour
     {
         SceneManager.LoadScene(nombre);
         Time.timeScale = 1;
+        //carga la escena del juego y activa el tiempo
     }
-    public void salir() { Application.Quit(); Debug.Log("Saliendo del juego"); }
+    public void salir() { Application.Quit(); Debug.Log("Saliendo del juego"); } //sale del juego al presionar salir
 }

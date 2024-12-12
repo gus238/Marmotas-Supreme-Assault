@@ -5,17 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class pantallaFinalizacion : MonoBehaviour
 {
-    
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene("Menu Principal");
+            SceneManager.LoadScene("Menu Principal"); //si se presiona escape, se dirige la escena a "Menu Principal"
         }
     }
 }
