@@ -14010,7 +14010,6 @@ GameObject:
   - component: {fileID: 718099390}
   - component: {fileID: 718099393}
   - component: {fileID: 718099394}
-  - component: {fileID: 718099395}
   - component: {fileID: 718099396}
   m_Layer: 0
   m_Name: Player
@@ -14132,21 +14131,6 @@ MonoBehaviour:
   vidaMaxima: 100
   vidaActual: 0
   pantallaDerrota: {fileID: 1095059009}
---- !u!114 &718099395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 718099384}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fb2224e6e44be94290ca57beab1dbb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dashDistance: 2
-  dashCooldown: 0.5
-  dashDuration: 0.1
 --- !u!82 &718099396
 AudioSource:
   m_ObjectHideFlags: 0
