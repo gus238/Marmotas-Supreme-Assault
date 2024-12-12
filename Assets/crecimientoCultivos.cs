@@ -6,7 +6,8 @@ using TMPro.Examples;
 using UnityEngine.UI;
 public class crecimientoCultivos : MonoBehaviour
 {
-    //Variables para 
+    //Variables para asignar las imagenes que se muestran en la parte cultivos del inventario
+    //Variables para administrar el tiempo de crecimiento de los cultivos
     private float tiempoControlCrecer = 0f;
     public float tiempoCrecer;
     public GameObject cultivoCrecido;
@@ -15,6 +16,7 @@ public class crecimientoCultivos : MonoBehaviour
     public Image imagenContador;
     public GameObject imagencontador;
 
+    //Se asigna valores como si el cultivo no estuviera crecido apenas se activa el GameObject
     void Start()
     {
         imgCrecido.SetActive(false);
@@ -23,6 +25,7 @@ public class crecimientoCultivos : MonoBehaviour
         imagenContador.fillAmount = 1f;
     }
 
+    //Controla el paso del tiempo para el crecimiento del cultivo y cuando alcanza el tiempo asignado desde el editor llama a CrecimientoCultivo
     void Update()
     {
         imagencontador.SetActive(true);
@@ -33,6 +36,10 @@ public class crecimientoCultivos : MonoBehaviour
             CrecimientoCultivo();
         }
     }
+
+    //Activa el GameObject que muestra el cultivo crecido y la imagen que muestra que esta crecido
+    //Desactiva el gameobject que tiene el script y la imagen que funcionaba de timer para ver el progreso del crecimiento
+    //Resetea el tiempo de control de crecimiento
     private void CrecimientoCultivo()
     {
         tiempoControlCrecer = 0f;

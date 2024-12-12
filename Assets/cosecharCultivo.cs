@@ -5,16 +5,19 @@ using UnityEngine.UI;
 
 public class CosecharCultivo : MonoBehaviour
 {
+    //Variables que toman los GameObjects para administrar el tiempo de cosecha y que se cosecha
     public GameObject[] cultivosListosParaCosechar;
     public GameObject canvaCosecha;
     public GameObject barraCosecha;
     public Slider sliderCosecha;
     public GameObject player;
 
+    //Variables que toman cuanto tiempo hay que presionar la E y verifica que estemos parados en la zona de cosecha
     public float tiempoBasePresionE = 3.0f; 
     private float tiempoCosecha;
     private bool triggerStayBool;
 
+    //Se asigna la barra de cosecha como totalmente llena y se desactiva el canva, barra y bool de cosecha
     void Start()
     {
         barraCosecha.SetActive(false);
@@ -23,6 +26,9 @@ public class CosecharCultivo : MonoBehaviour
         sliderCosecha.value = 1f;
     }
 
+    //Se crea un int que se le asigna el valor que devuelve contarcultivosactivos constantemente
+    //Se toma varias condiciones para empezar a vaciar la barra de cosecha si todas se cumplen
+    //Cuando se vacia la barra llama a cosecharcultivos y reseteartiempocosecha
     void Update()
     {
         int cultivosActivos = ContarCultivosActivos();
@@ -51,6 +57,7 @@ public class CosecharCultivo : MonoBehaviour
         }
     }
 
+    //Cuenta de una lista definida en el editor cuantos gameobject cultivos estan activos
     private int ContarCultivosActivos()
     {
         int activos = 0;
@@ -62,6 +69,7 @@ public class CosecharCultivo : MonoBehaviour
         return activos;
     }
 
+    //Agarra de la lista definida en el editor todos los cultivos listos para cosechar y los cosecha
     private void CosecharCultivos()
     {
         foreach (var cultivo in cultivosListosParaCosechar)
@@ -75,6 +83,7 @@ public class CosecharCultivo : MonoBehaviour
         }
     }
 
+    //Mientras el player este en el trigger de la parcela para cosechar y haya al menos 1 cultivo para cosechar se activa el canva que muestra la barra de cosecha
     void OnTriggerStay(Collider objeto)
     {
         if (objeto.tag == ("Player"))
@@ -85,6 +94,7 @@ public class CosecharCultivo : MonoBehaviour
         }
     }
 
+    //Cuando el player deja el trigger se desactiva el canva y barra de cosecha
     void OnTriggerExit(Collider objeto)
     {
         if (objeto.tag == ("Player"))
@@ -95,6 +105,7 @@ public class CosecharCultivo : MonoBehaviour
         }
     }
 
+    //Se resetea el valor del slider cosecha y el contador de tiempo para cosechar
     public void ResetearTiempoCosecha()
     {
         tiempoCosecha = 0f;

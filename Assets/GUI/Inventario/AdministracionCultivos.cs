@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class AdministracionCultivos : MonoBehaviour
 {
+    //Toma el canva que tiene el menu de cultivos y el estado del canva del inventario
     public GameObject MenuCultivos;
     public bool InterfazCultivos;
     public AdministracionInventario adminInventario;
 
+    //Encuentra el canvas del inventario y toma el script de administracion inventario de este gameobject
     void Start()
     {
         // Encuentra el componente AdministracionInventario en el CanvasInventario
@@ -18,6 +20,7 @@ public class AdministracionCultivos : MonoBehaviour
         }
     }
 
+    //Si se aprieta Tab sale del canva cultivos y reanuda el tiempo, ademas de darle el valor de que cultivo esta desactivado a administracionInventario
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -26,7 +29,6 @@ public class AdministracionCultivos : MonoBehaviour
             MenuCultivos.SetActive(false);
             InterfazCultivos = false;
 
-            // Actualiza el estado en AdministracionInventario
             if (adminInventario != null)
             {
                 adminInventario.InterfazCultivos = false;
@@ -34,6 +36,7 @@ public class AdministracionCultivos : MonoBehaviour
         }
     }
 
+    //Al apretar volver en el canva cultivos desactiva a este y vuelve al inventario que encuentra en la escena
     public void VolverMenu()
     {
         // Desactiva el menú de cultivos
@@ -48,9 +51,8 @@ public class AdministracionCultivos : MonoBehaviour
             if (hijoTransform != null)
             {
                 GameObject hijo = hijoTransform.gameObject;
-                hijo.SetActive(true); // Activa el inventario
+                hijo.SetActive(true);
 
-                // Actualiza el estado en AdministracionInventario
                 if (adminInventario != null)
                 {
                     adminInventario.InterfazCultivos = false;
