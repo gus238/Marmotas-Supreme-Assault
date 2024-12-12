@@ -6,6 +6,7 @@ using TMPro.Examples;
 using UnityEngine.UI;
 public class crecimientoCultivos : MonoBehaviour
 {
+    //Variables para 
     private float tiempoControlCrecer = 0f;
     public float tiempoCrecer;
     public GameObject cultivoCrecido;
