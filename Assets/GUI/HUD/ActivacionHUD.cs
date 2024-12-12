@@ -8,12 +8,9 @@ public class ActivacionHUD : MonoBehaviour
     
     void Start()
     {
-        HudObjeto.SetActive(true);
+        HudObjeto.SetActive(true); //activa el objeto Hud para mostrarle al player
     }
 
     
-    void Update()
-    {
-        
-    }
+    
 }

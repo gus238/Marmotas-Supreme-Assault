@@ -22,7 +22,7 @@ public class BarraDeVida : MonoBehaviour
             EnemyAIMovement enemigo = objeto.GetComponent<EnemyAIMovement>();
             if (enemigo != null && damageCoroutine == null)
             {
-                // Empieza a hacer daño a intervalos de tiempo
+                // Empieza a hacer daño a intervalos de tiempo si se encuentra con un ememigo y el juego esta corriendo, es decir, el tiempo esta en 1
                 damageCoroutine = StartCoroutine(ReducirVidaConIntervalo(enemigo));
                
             }
@@ -47,7 +47,7 @@ public class BarraDeVida : MonoBehaviour
         while (true)
         {
             ReducirVida(enemigo.Damage); // Aplica el daño del enemigo
-            yield return new WaitForSeconds(enemigo.attackCooldown); // Espera el tiempo de cooldown
+            yield return new WaitForSeconds(enemigo.attackCooldown); // Espera el tiempo de cooldown del ataque del enemigo (para que no haya oneshot)
         }
     }
     void Start()
@@ -57,6 +57,7 @@ public class BarraDeVida : MonoBehaviour
         barraDeVida.value = vidaActual;
         barraDeVidaAmarilla.value = vidaActual;
         barraDeVidaAmarilla.maxValue = vidaMaxima;
+        //se asignan los valores de vida
     }
 
     void Update()
@@ -64,12 +65,12 @@ public class BarraDeVida : MonoBehaviour
         if (vidaActual <= 0)
         {
             Time.timeScale = 0;
-            pantallaDerrota.SetActive(true);
+            pantallaDerrota.SetActive(true); //si la vida es 0 o menor, se activa el canva de pantallaDerrota
         }
         if (barraDeVida.value != barraDeVidaAmarilla.value)
         {
             barraDeVidaAmarilla.value = Mathf.Lerp(barraDeVidaAmarilla.value, vidaActual, velBarraAmarilla);
-        }
+        } //si se reduce la vida del jugador, muestra una barra de vida amarilla que también bajará pero mas lento
     }
 
     public void ReducirVida(float cantidad) 
@@ -78,5 +79,6 @@ public class BarraDeVida : MonoBehaviour
         vidaActual = Mathf.Clamp(vidaActual, 0, vidaMaxima);
 
         barraDeVida.value = vidaActual;
+        //reduce la vida y acomula el valor de barraDeVida en vidaActual
     }
 }

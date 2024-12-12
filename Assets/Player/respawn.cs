@@ -6,17 +6,12 @@ public class respawn : MonoBehaviour
 {
     public Transform puntorespawn;
     
-    void Start()
-    {
-        
-    }
-
     
     void Update()
     {
         if (transform.position.y < -10)
         {
-            transform.position = puntorespawn.position;
+            transform.position = puntorespawn.position; //si el jugador cae del mapa, aparecerá donde se encuentra el Empty dentro del juego, es decir, hara un spawn
         }
     }
 }
