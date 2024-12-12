@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class generarDineroMina : MonoBehaviour
 {
-    public int tiempoPorPlata;  // Este valor puede ser un entero (en segundos).
-    public int cantDineroPorTick;  // Este valor tambi�n debe ser un entero.
-    private float rateGeneracionDinero = 0f;  // Mant�n este valor como float para llevar el conteo en tiempo real.
+    public int tiempoPorPlata;  // tiempo (en segundos)
+    public int cantDineroPorTick;  // Dinero que se genera por segundo
+    private float rateGeneracionDinero = 0f;  // Acumula el tiempo en el update
     public GameObject player;
 
     void Update()
     {
         rateGeneracionDinero += Time.deltaTime;
 
-        // Aseg�rate de comparar correctamente los valores
+        // pregunta si rateGeneracionDinero >= tiempoPorPlata (>= ya que nunca va a poder ser igual debido a la velocidad que se guarda la info en el update)
         if (rateGeneracionDinero >= tiempoPorPlata)
         {
-            // Aqu� se hace la conversi�n expl�cita de float a int si es necesario.
-            player.GetComponent<economiaJugador>().RecibirMonedas(cantDineroPorTick);
+            
+            player.GetComponent<economiaJugador>().RecibirMonedas(cantDineroPorTick); // utilizo la función RecibirMonedas de economíaJugador y le ingreso como atributo cantDineroPorTick
 
-            // Reiniciar la tasa de generaci�n
-            rateGeneracionDinero = 0f;
+            
+            rateGeneracionDinero = 0f; //reseteo rateGeneracionDinero para que se vuelva a acumular y se vuelva a generar el if
         }
     }
 }
