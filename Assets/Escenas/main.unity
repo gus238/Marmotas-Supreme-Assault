@@ -5582,34 +5582,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 984844f25f71945478674d78116eaa48, type: 3}
   m_PrefabInstance: {fileID: 468962947}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &277034386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 277034381}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba0ec8bb7c122ac4082caf6fd65af206, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  "da\xF1o": 1
-  fireRate: 0.2
-  rango: 50
-  tiempoRecarga: 1
-  tiempoEntreRafaga: 0.2
-  "tama\xF1oCargador": 8
-  "tama\xF1oRafaga": 1
-  mantenerApretado: 0
-  fpsCam: {fileID: 1458250022}
-  puntoSalida: {fileID: 1388564865}
-  tagEnemigo:
-    serializedVersion: 2
-    m_Bits: 64
-  disparoSonido: {fileID: 0}
-  recargaSonido: {fileID: 0}
-  text: {fileID: 1007965736}
 --- !u!82 &277034387
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8977,9 +8949,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 984844f25f71945478674d78116eaa48, type: 3}
       insertIndex: -1
       addedObject: {fileID: 277034390}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 984844f25f71945478674d78116eaa48, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 277034386}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 984844f25f71945478674d78116eaa48, type: 3}
       insertIndex: -1
       addedObject: {fileID: 277034387}
