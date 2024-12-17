@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//funcionalidad del canvas inventario, apretar tab para que se abra, apretar reaanudar para que se cierre, abrir los cultivos
 public class AdministracionInventario : MonoBehaviour
 {
     //Toma el canva de inventario y el estado del canva de cultivos
-    public GameObject MenuInventario;
+    public GameObject MenuInventario; // canva inventario
     public bool ActivacionInventario;
     public bool InterfazCultivos;
     public AdministracionCultivos adminCultivos;
