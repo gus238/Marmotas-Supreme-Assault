@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/*
+Escena menu principal: asignado en el objeto musica
+El objeto al que esta asignado el script esta siempre activo si se entra desde el menu principal
+Toma una pista de audio que reproduce en loop
+La escena en la que se esta parado se transforma en un string y si coincide con la asignada en el editor(main) se detiene la musica pero no se destruye
+Al salir de la escena main la musica vuelve a reproducirse
+Se verifica cada cambio de escena si la musica se esta reproduciendo para evitar varias reproducciones a la vez
+*/
+
 public class musicaEntreEscenas : MonoBehaviour
 {
     //Se asigna la escena, el nombre de la escena y la instancia(escena) en la que estamos parados

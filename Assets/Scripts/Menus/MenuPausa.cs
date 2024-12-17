@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/*
+Escena main: CanvasPausa, botones de volver al menu y reanudar
+El canvaspausa esta siempre activo y toma que cuando se presione escape, se active el panel que tiene dentro la interfaz del menu de pausa
+Se habilita el uso del mouse y se vuelve a este visible
+Se detiene el timescale
+El boton reanudar tiene la funcion reanudar que basicamente cancela lo que hace el escape
+El boton volver al menu carga la escena menu principal asignada como string desde el editor
+*/
+
 public class MenuPausa : MonoBehaviour
 {
     public GameObject ObjetoMenuPausa;

@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/*
+Escena menu principal: asignado a objeto menuOpciones
+Los botones que tienen asignado la funcion cargarJuego (reglas y jugar por ej) cargan la escena que se le asigna como string desde el editor
+El boton salir tiene asignada la funcion salir y tiene solo uso en la build .exe
+*/
 
 public class menuOpciones : MonoBehaviour
 {
