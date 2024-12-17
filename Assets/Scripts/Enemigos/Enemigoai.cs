@@ -2,6 +2,13 @@ using System;
 using UnityEngine;
 using UnityEngine.AI;
 
+/*
+Escena main: marmonanerf2 (enemigo comun) y marmotacetro3 (enemigo jefe)
+Los objetos con este script necesitan un nav mesh agent para moverse y un nav mesh surface sobre el que moverse
+Se establece un objeto que al entrar este en rango provoca a los enemigos y hace que empiece a seguir al transform asignado como target
+Si se esta en rango de ataque, se ataca a este cada cierto tiempo (attack cooldown)
+*/
+
 public class EnemyAIMovement : MonoBehaviour
 {
     //A que transform seguir (player)

@@ -3,6 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/*
+Escena main: ZonaSpawnEnemigos 1
+
+Este objeto que tiene el script es un plano sin mesh renderer y sin mesh collider
+Toma una lista de transforms que son objetos iguales al ZonaSpawnEnemigos 1 pero sin este script
+Cada vez que se itera una marmota o jefe se decide un punto de spawn entre la lista de transforms
+
+Constantemente se obtiene la cantidad de enemigos restantes (objetos activos con tag enemy)
+Cuando los enemigos restantes es 0 se pasa de oleada
+
+Cuando oleadaActual es igual a maxOleada Y quedan 0 enemigos se activa la condicion de victoria
+
+La condicion de victoria es mostrar el canva victoria que permite volver al menu principal
+*/
+
 public class ZonaDeSpawnManager : MonoBehaviour
 {
     public GameObject pantallaVictoria;
@@ -10,7 +25,7 @@ public class ZonaDeSpawnManager : MonoBehaviour
     public GameObject prefabEnemigo;       
     public Transform[] puntosSpawn;
     public float tiempoEntreSpawn = 10f;
-    public int maxOleadas = 5;             // Número máximo de oleadas
+    public int maxOleadas = 5;
     public int enemigosPorOleada = 2;      
     public int jefePorOleada = 1;
     public int oleadaActual = 0;          

@@ -2,6 +2,13 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+
+/*
+Escena main: marmonanerf2 (enemigo comun) y marmotacetro3 (enemigo jefe) 
+Desde caracteristicasArmaOriginal se aplica la funcion TakeDamage al enemigo que reciba un disparo
+Los enemigos tienen una barra de vida que esta activa solo si recibieron daño recientemente
+Al morir da un valor de dinero entre un numero minimo y uno maximo al jugador
+*/
 public class VidaEnemigo : MonoBehaviour
 {
     //
