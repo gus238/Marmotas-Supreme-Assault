@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// ir entre los interfaces de la tienda (habilidades, armas y consumibles) habilitando uno y deshabilitando los 2 restantes
 public class opcionesTienda : MonoBehaviour
 {
     //GameObjects de las pestañas(paneles) de la tienda
