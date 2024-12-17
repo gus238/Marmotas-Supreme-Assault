@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// Funcionamientom del cultivo, como ir desde el canvas inventario a menu, viceversa y  administrar canvas
 public class AdministracionCultivos : MonoBehaviour
 {
     //Toma el canva que tiene el menu de cultivos y el estado del canva del inventario

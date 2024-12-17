@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+// slider al cosechar los cultivos ya crecidos, desactiva el movimiento del jugador (script) al cosecharlos, muestra un slider que va disminuyendo cuando se mantiene presionada la E hasta que desaparece cuando los cultivos son cosechados 
 public class CosecharCultivo : MonoBehaviour
 {
     //Variables que toman los GameObjects para administrar el tiempo de cosecha y que se cosecha
-    public GameObject[] cultivosListosParaCosechar;
+    public GameObject[] cultivosListosParaCosechar; 
     public GameObject canvaCosecha;
     public GameObject barraCosecha;
     public Slider sliderCosecha;

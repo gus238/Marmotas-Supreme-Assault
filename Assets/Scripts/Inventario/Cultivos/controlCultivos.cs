@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// Da el oro del cultivo al cosecharlo, conectandose con el scrpit economiaJugador
 public class controlCultivos : MonoBehaviour
 {
     //Variables que toman el dinero del jugador y el cultivo que se quiere plantar
     public GameObject player;
     economiaJugador dinero;
     int dineroActual;
-    public GameObject cultivo;
+    public GameObject cultivo; //cultivo dentro del slot
     public int costeCompra;
     
     //Se asigna el cultivo como desactivado y dinero toma los componentes de economiajugador (script que maneja nuestro dinero)

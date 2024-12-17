@@ -4,17 +4,18 @@ using UnityEngine;
 using TMPro;
 using TMPro.Examples;
 using UnityEngine.UI;
+//proceso del crecimiento de los cultivos, junto con un contador por cada slot de la parcela cuando el cultivo va creciendo
 public class crecimientoCultivos : MonoBehaviour
 {
     //Variables para asignar las imagenes que se muestran en la parte cultivos del inventario
     //Variables para administrar el tiempo de crecimiento de los cultivos
     private float tiempoControlCrecer = 0f;
     public float tiempoCrecer;
-    public GameObject cultivoCrecido;
+    public GameObject cultivoCrecido; //gameobject del cultivo al crecer
     private int contadorCultivo;
     public GameObject imgCrecido;
     public Image imagenContador;
-    public GameObject imagencontador;
+    public GameObject imagencontador; 
 
     //Se asigna valores como si el cultivo no estuviera crecido apenas se activa el GameObject
     void Start()

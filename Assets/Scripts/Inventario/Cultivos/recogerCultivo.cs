@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// recoge los cultivos, y su funcion principal es dar el oro de cada cultivo, incorporandolas a las monedas del jugador
 public class RecogerCultivo : MonoBehaviour
 {
     //Variables que toma la parcela en la que esta plantado, el jugador y cuanto dinero da
     public int valorCultivo;
     public GameObject player;
-    public GameObject parcela;
-    public GameObject imagenCrecido;
+    public GameObject parcela; //espacio donde estan los 6 slots por cultivo en el juego
+    public GameObject imagenCrecido; 
 
     //Toma el dinero que tiene el jugador
     economiaJugador dinero;
