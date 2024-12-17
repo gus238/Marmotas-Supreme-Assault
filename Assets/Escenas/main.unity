@@ -559,7 +559,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cbb79f54f637fd14eb93ce423f65e9d3, type: 3}
       propertyPath: m_Name
-      value: monedaparagusversion2
+      value: moneda mina
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cbb79f54f637fd14eb93ce423f65e9d3, type: 3}
       propertyPath: m_IsActive

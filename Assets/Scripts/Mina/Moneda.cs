@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+Escena main: moneda mina
+Cuando un objeto con el tag player entra al trigger de la moneda esta da el dinero al componente economiajugador
+Reproduce un sonido al recogerse
+Se destruye al recogerse
+*/
+
 public class Moneda : MonoBehaviour
 {
     public int valorMoneda;

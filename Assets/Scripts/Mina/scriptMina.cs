@@ -4,6 +4,15 @@ using UnityEngine;
 using TMPro;
 using TMPro.Examples;
 
+/*
+Escena main: punto compra 1 el objeto que tiene el script
+Cuando el jugador esta parado dentro del trigger del objeto con este script, activa el canva para comprar el taladro
+Si apretas la tecla E para comprar y tenes el dinero te lo descuenta al coste, si no, no pasa nada
+Al salir del trigger se desactiva el canva diciendo el coste
+
+Se itera monedas cada x tiempo en una zona general alrededor del objeto lugarSpawnMonedas
+*/
+
 public class scriptMina : MonoBehaviour
 {
     public GameObject mina;
