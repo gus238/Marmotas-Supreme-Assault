@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Genera dinero de forma pasiva
 public class generarDineroMina : MonoBehaviour
 {
     public int tiempoPorPlata;  // tiempo (en segundos)

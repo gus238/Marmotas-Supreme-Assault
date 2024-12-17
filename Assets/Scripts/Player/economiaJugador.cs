@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+/*administra las monedas del jugador, genera monedas cuando la mina está activa, metodo recibir dinero que le da una cantidad especifica de dinero, se
+muestra todo el dinero total por pantalla
+*/
 public class economiaJugador : MonoBehaviour
 {
     public int cantidadMonedas;
