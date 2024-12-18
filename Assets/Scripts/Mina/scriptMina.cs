@@ -27,10 +27,12 @@ public class scriptMina : MonoBehaviour
     int dinero;
     public TextMeshProUGUI costeTexto;
     public GameObject lugarSpawnMonedas;
-    public int cantMonedasPorCiclo = 5;
+    int cantMonedasPorCiclo;
+    public int cantMonedasPorCicloInicial = 5;
 
     void Start()
     {
+        cantMonedasPorCiclo = cantMonedasPorCicloInicial;
         construido = false;
         hudMina.SetActive(false);
         mina.SetActive(false);
@@ -67,7 +69,7 @@ public class scriptMina : MonoBehaviour
                 mina.SetActive(true);
                 construido = true;
                 monedas.RecibirMonedas(-coste);
-                cantMonedasPorCiclo = 5;
+                cantMonedasPorCiclo = cantMonedasPorCicloInicial;
             }
         }
         //si el tag que esta dentro del trigger del objeto es Player, Activo el Hud, y si dentro de este, se presiona e,
