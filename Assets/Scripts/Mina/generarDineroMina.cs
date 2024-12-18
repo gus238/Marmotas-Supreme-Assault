@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+//test
 //Genera dinero de forma pasiva
 public class generarDineroMina : MonoBehaviour
 {

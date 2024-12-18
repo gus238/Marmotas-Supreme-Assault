@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//test
 /*
 Escena menu principal: asignado en el objeto musica
 El objeto al que esta asignado el script esta siempre activo si se entra desde el menu principal
