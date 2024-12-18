@@ -9,16 +9,13 @@ public class AdministracionInventario : MonoBehaviour
     public bool ActivacionInventario;
     public bool InterfazCultivos;
     public AdministracionCultivos adminCultivos;
+    public GameObject MenuCultivo;
 
     //Encuentra el componente AdministracionCultivos en el CanvasCultivos
     void Start()
     {
-        
-        GameObject canvasCultivos = GameObject.Find("CanvasCultivos");
-        if (canvasCultivos != null)
-        {
-            adminCultivos = canvasCultivos.GetComponent<AdministracionCultivos>();
-        }
+
+        MenuCultivo.SetActive(false);
     }
 
     //Si se aprieta tab y el canva de inventario y cultivos estan desactivados pausa el tiempo y abre el inventario, activa el cursor
@@ -42,39 +39,13 @@ public class AdministracionInventario : MonoBehaviour
             Cursor.visible = false;
         }
     }
+    public void DesdeInvHastaCultivos()
+    {
+        MenuInventario.SetActive(false);
+        MenuCultivo.SetActive(true);
+
+    }
 
     //Al apretar cultivos en el inventario desactiva el inventario y encuentra el canva de cultivos y lo activa
-    public void ActivarCultivos()
-    {
-        //Desactiva el menú de inventario
-        MenuInventario.SetActive(false);
-        ActivacionInventario = false;
-
-        //Encuentra el CanvasCultivos y activa el menú
-        GameObject padre = GameObject.Find("CanvasCultivos");
-        if (padre != null)
-        {
-            Transform hijoTransform = padre.transform.Find("MenuCultivos");
-            if (hijoTransform != null)
-            {
-                GameObject hijo = hijoTransform.gameObject;
-                hijo.SetActive(true); //Activa el menú de cultivos
-
-                //Actualiza el estado de los booleanos en ambos scripts
-                InterfazCultivos = true;
-                if (adminCultivos != null)
-                {
-                    adminCultivos.InterfazCultivos = true;
-                }
-            }
-            else
-            {
-                Debug.LogWarning("Hijo no encontrado");
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Padre no encontrado");
-        }
-    }
+    
 }
