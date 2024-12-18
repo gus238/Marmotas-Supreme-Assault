@@ -27,6 +27,7 @@ public class scriptMina : MonoBehaviour
     int dinero;
     public TextMeshProUGUI costeTexto;
     public GameObject lugarSpawnMonedas;
+    public int cantMonedasPorCiclo = 5;
 
     void Start()
     {
@@ -42,7 +43,6 @@ public class scriptMina : MonoBehaviour
     void Update()
     {
         dinero = monedas.cantidadMonedas; //guardo la función dentro de una variable
-        
 
         // Genera monedas en intervalos despues de construir la mina, dirigiendose a la funcion GenerarMoneda
         if (construido)
@@ -67,6 +67,7 @@ public class scriptMina : MonoBehaviour
                 mina.SetActive(true);
                 construido = true;
                 monedas.RecibirMonedas(-coste);
+                cantMonedasPorCiclo = 5;
             }
         }
         //si el tag que esta dentro del trigger del objeto es Player, Activo el Hud, y si dentro de este, se presiona e,
@@ -81,9 +82,24 @@ public class scriptMina : MonoBehaviour
 
     public void GenerarMoneda()
     {
-        Vector3 posicionmoneda = lugarSpawnMonedas.transform.position + new Vector3(Random.Range(-3f, 3f), 0, Random.Range(-3f, 3f));
-        GameObject moneda = Instantiate(monedaPrefab, posicionmoneda, Quaternion.identity);
-        moneda.SetActive(true); 
+        for(int i = 0; i < cantMonedasPorCiclo; i++) 
+        {
+            Vector3 posicionmoneda = lugarSpawnMonedas.transform.position + new Vector3(Random.Range(-3f, 3f), 0, Random.Range(-3f, 3f));
+            GameObject moneda = Instantiate(monedaPrefab, posicionmoneda, Quaternion.identity);
+            moneda.SetActive(true);
+        }
+        cantMonedasPorCiclo--;
+        VerificarMina();
         //genero una moneda en una posición random dentro de los parametros marcados
+    }
+
+    public void VerificarMina()
+    {
+        if (cantMonedasPorCiclo == 0)
+        {
+            construido = false;
+            mina.SetActive(false);
+            Debug.Log("Se acabaron las monedas");
+        }
     }
 }
