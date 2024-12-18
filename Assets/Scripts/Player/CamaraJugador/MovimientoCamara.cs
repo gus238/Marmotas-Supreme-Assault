@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+Escena main: PlayerCamera, hijo de holderCamera
+Maneja la rotacion y sensibilidad de la camara
+Apenas inicia la escena esconde el cursor y lo bloquea para que no salga de la pantalla
+*/
+
 public class MovimientoCamara : MonoBehaviour
 {
     public float sensX;

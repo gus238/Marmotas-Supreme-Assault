@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+Escena main: Player
+Gira en torno al uso del rigidbody del jugador
+Orientacion del jugador
+Control de velocidad del jugador
+Control de salto del jugador
+*/
+
 public class MovimientoJugador : MonoBehaviour
 {
     [Header("Movimiento")]
