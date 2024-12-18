@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+Escena main: Objeto player
+Asigna la vida y barra de vida del jugador
+Maneja la perdida de vida al recibir daño en intervalos de tiempo con la corrutina ReducirVidaConIntervalo
+*/
+
 public class BarraDeVida : MonoBehaviour
 {
     public Slider barraDeVida;
@@ -73,12 +79,12 @@ public class BarraDeVida : MonoBehaviour
         } //si se reduce la vida del jugador, muestra una barra de vida amarilla que también bajará pero mas lento
     }
 
+    //reduce la vida actual y sincroniza la barra de vida con vidaActual
     public void ReducirVida(float cantidad) 
     {
         vidaActual -= cantidad;
         vidaActual = Mathf.Clamp(vidaActual, 0, vidaMaxima);
 
         barraDeVida.value = vidaActual;
-        //reduce la vida y acomula el valor de barraDeVida en vidaActual
     }
 }

@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/* 
+Escena main: portales
+Al entrar en collision con el objeto si es el player,
+este es teletransportado al warp asignado
+*/
+
 public class teletransporte : MonoBehaviour
 {
     //Asigna el sonido que se reproduce al pasar por el portal

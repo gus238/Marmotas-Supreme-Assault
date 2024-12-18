@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/*
+Escena main: Objeto glockparagus
+Script para determinar el funcionamiento y parametros de la glock que tiene el personaje
+Se usa raycasthit para obtener la vida a reducir del objeto golpeado si es tag enemy
+Click Izquierdo para disparar
+R para recargar
+*/
+
 public class CaracteristicasArmaOriginal : MonoBehaviour
 {
     [Header("Propiedades del Arma")]
