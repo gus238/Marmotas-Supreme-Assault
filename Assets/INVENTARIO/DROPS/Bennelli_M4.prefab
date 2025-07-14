@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AgarrarArmas: {fileID: 0}
-  numeroArma: 0
+  numeroArma: 2
 --- !u!1 &1326079549577358
 GameObject:
   m_ObjectHideFlags: 0
