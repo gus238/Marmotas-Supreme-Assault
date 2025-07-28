@@ -1,8 +1,6 @@
-using System.Collections;
 using UnityEngine;
-using TMPro;
 
-public class M4 : MonoBehaviour
+public class M4 : MonoBehaviour, IWeapon
 {
     [Header("Propiedades del Arma")]
     public int daño = 20;
@@ -15,7 +13,7 @@ public class M4 : MonoBehaviour
     public bool mantenerApretado = true;
 
     [Header("Estado de Munición")]
-    private int balasRestantes;
+    [SerializeField] private int balasRestantes;
     private int balasDisparadas;
 
     [Header("Control de Disparo")]
@@ -25,22 +23,24 @@ public class M4 : MonoBehaviour
 
     [Header("Referencias")]
     public Camera fpsCam;
-    public Transform puntoSalida;
-    public LayerMask tagEnemigo;
+    public LayerMask capaEnemigo;
     public AudioSource audioSource;
     public AudioClip disparoSonido;
     public AudioClip recargaSonido;
-    public TextMeshProUGUI text;
 
-    private void Start()
+    public int BalasRestantes => balasRestantes;
+    public int TamanoCargador => tamañoCargador;
+
+    private void OnEnable()
     {
         balasRestantes = tamañoCargador;
+        AmmoHUD.Instance.SetArmaActual(this);
     }
 
     private void Update()
     {
         MiInput();
-        text.SetText(balasRestantes + " / " + tamañoCargador);
+        AmmoHUD.Instance.ActualizarHUD();
     }
 
     private void MiInput()
@@ -48,9 +48,7 @@ public class M4 : MonoBehaviour
         disparando = mantenerApretado ? Input.GetKey(KeyCode.Mouse0) : Input.GetKeyDown(KeyCode.Mouse0);
 
         if (Input.GetKeyDown(KeyCode.R) && balasRestantes < tamañoCargador && !recargando)
-        {
             Recargar();
-        }
 
         if (listoParaDisparar && disparando && !recargando && balasRestantes > 0)
         {
@@ -62,15 +60,12 @@ public class M4 : MonoBehaviour
     private void Disparar()
     {
         listoParaDisparar = false;
-        audioSource.PlayOneShot(disparoSonido);
+        if (audioSource && disparoSonido) audioSource.PlayOneShot(disparoSonido);
 
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out RaycastHit rayHit, rango, tagEnemigo))
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out RaycastHit rayHit, rango, capaEnemigo))
         {
-            VidaEnemigo vidaEnemigo = rayHit.collider.GetComponent<VidaEnemigo>();
-            if (vidaEnemigo != null)
-            {
-                vidaEnemigo.TakeDamage(daño);
-            }
+            var vida = rayHit.collider.GetComponentInParent<VidaEnemigo>();
+            if (vida != null) vida.TakeDamage(daño);
         }
 
         balasRestantes--;
@@ -79,20 +74,15 @@ public class M4 : MonoBehaviour
         Invoke(nameof(ResetDisparo), fireRate);
 
         if (balasDisparadas > 0 && balasRestantes > 0)
-        {
             Invoke(nameof(Disparar), tiempoEntreRafaga);
-        }
     }
 
-    private void ResetDisparo()
-    {
-        listoParaDisparar = true;
-    }
+    private void ResetDisparo() => listoParaDisparar = true;
 
-    private void Recargar()
+    public void Recargar()
     {
         recargando = true;
-        audioSource.PlayOneShot(recargaSonido);
+        if (audioSource && recargaSonido) audioSource.PlayOneShot(recargaSonido);
         Invoke(nameof(RecargaTerminada), tiempoRecarga);
     }
 
@@ -100,6 +90,6 @@ public class M4 : MonoBehaviour
     {
         balasRestantes = tamañoCargador;
         recargando = false;
+        AmmoHUD.Instance.ActualizarHUD();
     }
 }
-

@@ -1,19 +1,16 @@
-using System.Collections;
 using UnityEngine;
-using TMPro;
 
-public class Benelli : MonoBehaviour
+public class Benelli : MonoBehaviour, IWeapon
 {
     [Header("Propiedades del Arma")]
     public int daño = 50;
     public float fireRate = 1f;
     public float rango = 25f;
     public float tiempoRecarga = 3f;
-    public int tamañoCargador = 8;
-    public bool mantenerApretado = false;
+    public int tamañoCargador = 5;
 
     [Header("Estado de Munición")]
-    private int balasRestantes;
+    [SerializeField] private int balasRestantes;
 
     [Header("Control de Disparo")]
     private bool listoParaDisparar = true;
@@ -21,65 +18,56 @@ public class Benelli : MonoBehaviour
 
     [Header("Referencias")]
     public Camera fpsCam;
-    public Transform puntoSalida;
-    public LayerMask tagEnemigo;
+    public LayerMask capaEnemigo;
     public AudioSource audioSource;
     public AudioClip disparoSonido;
     public AudioClip recargaSonido;
-    public TextMeshProUGUI text;
 
-    private void Start()
+    public int BalasRestantes => balasRestantes;
+    public int TamanoCargador => tamañoCargador;
+
+    private void OnEnable()
     {
         balasRestantes = tamañoCargador;
+        AmmoHUD.Instance.SetArmaActual(this);
     }
 
     private void Update()
     {
         MiInput();
-        text.SetText(balasRestantes + " / " + tamañoCargador);
+        AmmoHUD.Instance.ActualizarHUD();
     }
 
     private void MiInput()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && listoParaDisparar && !recargando && balasRestantes > 0)
-        {
             Disparar();
-        }
 
         if (Input.GetKeyDown(KeyCode.R) && balasRestantes < tamañoCargador && !recargando)
-        {
             Recargar();
-        }
     }
 
     private void Disparar()
     {
         listoParaDisparar = false;
-        audioSource.PlayOneShot(disparoSonido);
+        if (audioSource && disparoSonido) audioSource.PlayOneShot(disparoSonido);
 
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out RaycastHit rayHit, rango, tagEnemigo))
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out RaycastHit rayHit, rango, capaEnemigo))
         {
-            VidaEnemigo vidaEnemigo = rayHit.collider.GetComponent<VidaEnemigo>();
-            if (vidaEnemigo != null)
-            {
-                vidaEnemigo.TakeDamage(daño);
-            }
+            var vida = rayHit.collider.GetComponentInParent<VidaEnemigo>();
+            if (vida != null) vida.TakeDamage(daño);
         }
 
         balasRestantes--;
-
         Invoke(nameof(ResetDisparo), fireRate);
     }
 
-    private void ResetDisparo()
-    {
-        listoParaDisparar = true;
-    }
+    private void ResetDisparo() => listoParaDisparar = true;
 
-    private void Recargar()
+    public void Recargar()
     {
         recargando = true;
-        audioSource.PlayOneShot(recargaSonido);
+        if (audioSource && recargaSonido) audioSource.PlayOneShot(recargaSonido);
         Invoke(nameof(RecargaTerminada), tiempoRecarga);
     }
 
@@ -87,5 +75,7 @@ public class Benelli : MonoBehaviour
     {
         balasRestantes = tamañoCargador;
         recargando = false;
+        AmmoHUD.Instance.ActualizarHUD();
     }
 }
+
